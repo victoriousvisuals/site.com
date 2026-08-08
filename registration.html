@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>Victorious Visuals -client regisration</title>
+
+        <!-- CSS FILES -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+        <link rel="stylesheet" href="css/slick.css"/>
+
+        <link href="css/victorious-visuals.css" rel="stylesheet">
+        <link href="css/preloader.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* LEFT SECTION */
+.left-side {
+    flex: 1;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.left-side h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.left-side p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* RIGHT SECTION */
+.right-side {
+    flex: 1;
+    background: white;
+    padding: 50px;
+    animation: slideIn 0.8s ease;
+}
+
+.right-side h2 {
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.right-side p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+form input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #00a6a6;
+    transform: scale(1.02);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media(max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-side {
+        min-height: 300px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="left-side">
+        <div>
+            <h1>Victorious Visuals</h1>
+            <p>
+                Kindly fill in your business information to help us understand
+                your brand and deliver the right creative solutions for you.
+            </p>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-side">
+        <h2>Client Registration</h2>
+        <p>Basic client information</p>
+
+        <form
+            action="https://docs.google.com/forms/d/e/1FAIpQLScgloHbtJ5FRS7Pkz_GUM7vP3Qo4fB27sVmqMXi5mmUQYQFPg/formResponse"
+            method="POST"
+            target="hidden_iframe"
+            onsubmit="submitted=true;">
+
+            <input type="text" name="entry.1684913894" placeholder="Full Name" required>
+
+            <input type="text" name="entry.1961698833" placeholder="Business / Organization Name" required>
+
+            <input type="text" name="entry.1885630253" placeholder="Job Title / Role" required>
+
+            <input type="email" name="entry.1184819467" placeholder="Personal / Business / Organization Email" required>
+
+            <input type="text" name="entry.1161312565" placeholder="Business Location (Optional)">
+
+            <input type="tel" name="entry.1109715986" placeholder="Personal Contact" required>
+
+            <input type="text" name="entry.975518403" placeholder="Personal Physical Location" required>
+
+            <button type="submit">
+                Submit Registration
+            </button>
+            <p style="margin-top:15px;"> <a href="index.html">Already Registered?</a></p>
+        </form>
+
+        <iframe
+            name="hidden_iframe"
+            style="display:none;"
+            onload="if(submitted){window.location='thankyou.html';}">
+        </iframe>
+
+    </div>
+</div>
+
+<script>
+var submitted = false;
+</script>
+
+     <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+
+                     <div class="col-lg-3 col-10 me-auto mb-4">
+                        <h4 class="text-white mb-3"> <span>Victorious</span> Visuals</h4>
+                        <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">© 2026 <strong>Victorious Visuals</strong></p>
+    
+                        <p class="copyright-text">All Rights Reserved.</p>
+                    </div>
+
+                    <div class="col-lg-5 col-8">
+                        <h5 class="text-white mb-3">Sitemap</h5>
+
+                        <ul class="footer-menu d-flex flex-wrap">
+                            <li class="footer-menu-item"><a href="about.html" class="footer-menu-link">About Us</a></li>
+
+                            <li class="footer-menu-item"><a href="portfolio.html" class="footer-menu-link">Portfolio</a></li>
+
+                            <li class="footer-menu-item"><a href="privacypolicy.html" class="footer-menu-link">Privacy policy</a></li>
+
+                            <li class="footer-menu-item"><a href="faq.html" class="footer-menu-link">FAQs</a></li>
+
+                            <li class="footer-menu-item"><a href="termsandconditions.html" class="footer-menu-link">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-4">
+                        <h5 class="text-white mb-3">Social</h5>
+
+                        <ul class="social-icon">
+
+                            <div class="social-links">
+
+
+                            
+                            <a href="https://www.facebook.com/designs.visuals" target="_blank">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+
+                            <a href="https://x.com/designs_visuals" target="_blank">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            
+                                
+                                <a href="https://www.pinterest.com/designs_visuals" target="_blank">
+                                    <i class="bi bi-pinterest"></i>
+                                </a>
+
+                                <a href="https://www.youtube.com/@designs_visuals" target="_blank">
+                                    <i class="bi bi-youtube"></i>
+                                </a>
+
+                            </div>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+</body>
+</html>

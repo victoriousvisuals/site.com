@@ -1,0 +1,149 @@
+/* ==========================
+   PRELOADER
+========================== */
+
+#preloader{
+
+position:fixed;
+inset:0;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:#ffffff;
+
+z-index:99999;
+
+transition:opacity .7s ease,
+visibility .7s ease;
+
+}
+
+.preloader-content{
+
+text-align:center;
+
+}
+
+.preloader-logo{
+
+width:95px;
+
+opacity:0;
+
+transform:scale(.92);
+
+animation:logoIntro .8s ease forwards;
+
+}
+
+.preloader-content h1{
+
+margin-top:22px;
+
+font-size:30px;
+
+font-weight:700;
+
+letter-spacing:3px;
+
+color:#1d1d1d;
+
+opacity:0;
+
+animation:fadeUp .8s .15s forwards;
+
+}
+
+.tagline{
+
+margin-top:10px;
+
+font-size:16px;
+
+color:#777;
+
+opacity:0;
+
+animation:fadeUp .8s .35s forwards;
+
+}
+
+.loading-text{
+
+display:block;
+
+margin-top:28px;
+
+font-size:14px;
+
+letter-spacing:1px;
+
+color:#0D6EFD;
+
+opacity:0;
+
+animation:
+fadeUp .8s .55s forwards,
+blink 1.5s infinite;
+
+}
+
+/* Animations */
+
+@keyframes logoIntro{
+
+from{
+
+opacity:0;
+
+transform:scale(.92);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(12px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes blink{
+
+0%,100%{
+
+opacity:1;
+
+}
+
+50%{
+
+opacity:.45;
+
+}
+
+}
