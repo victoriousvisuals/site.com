@@ -138,8 +138,6 @@ button:hover {
 </head>
 <body>
 
-     
-
 <div class="container">
 
     <!-- LEFT -->
@@ -158,25 +156,58 @@ button:hover {
         <h2>Client Registration</h2>
         <p>Basic client information</p>
 
-        <form
-            action="https://docs.google.com/forms/d/e/1FAIpQLScgloHbtJ5FRS7Pkz_GUM7vP3Qo4fB27sVmqMXi5mmUQYQFPg/formResponse"
-            method="POST"
-            target="hidden_iframe"
-            onsubmit="submitted=true;">
+<form id="registrationForm">
 
-            <input type="text" name="entry.1684913894" placeholder="Full Name" required>
+            <input
+    type="text"
+    id="full_name"
+    placeholder="Full Name"
+    required
+>
 
-            <input type="text" name="entry.1961698833" placeholder="Business / Organization Name" required>
+           <input
+    type="text"
+    id="business_organization_name"
+    placeholder="Business / Organization Name"
+    required
+>
 
-            <input type="text" name="entry.1885630253" placeholder="Job Title / Role" required>
+            <input
+    type="text"
+    id="job_title_role"
+    placeholder="Job Title / Role"
+    required
+>
 
-            <input type="email" name="entry.1184819467" placeholder="Personal / Business / Organization Email" required>
+<input
+    type="text"
+    id="email"
+    placeholder="Personal / Business / Organization Email"
+    required
+>
 
-            <input type="text" name="entry.1161312565" placeholder="Business Location (Optional)">
+<input
+    type="text"
+    id="business_location"
+    placeholder="Business Location (Optional)"
+    required
+>
 
-            <input type="tel" name="entry.1109715986" placeholder="Personal Contact" required>
+<input
+    type="text"
+    id="personal_contact"
+    placeholder="Personal Contact"
+    required
+>
 
-            <input type="text" name="entry.975518403" placeholder="Personal Physical Location" required>
+  <input
+    type="text"
+    id="personal_physical_location"
+    placeholder="Personal Physical Location"
+    required
+>           
+
+        
 
             <button type="submit">
                 Submit Registration
@@ -194,7 +225,88 @@ button:hover {
 </div>
 
 <script>
-var submitted = false;
+
+const form = document.getElementById("registrationForm");
+
+form.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const button = form.querySelector("button");
+
+    button.disabled = true;
+    button.innerText = "Submitting...";
+
+    const data = {
+
+        full_name:
+            document.getElementById("full_name").value.trim(),
+
+        business_organization_name:
+            document.getElementById("business_organization_name").value.trim(),
+
+        job_title_role:
+            document.getElementById("job_title_role").value.trim(),
+
+        email:
+            document.getElementById("email").value.trim(),
+
+        business_location:
+            document.getElementById("business_location").value.trim(),
+
+        personal_contact:
+            document.getElementById("personal_contact").value.trim(),
+
+        personal_physical_location:
+            document.getElementById("personal_physical_location").value.trim()
+    };
+
+    try {
+
+        const response = await fetch(
+            "https://graphics-team-api.victoriousvisuals-team.workers.dev/api/register",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(data)
+            }
+        );
+
+        const result = await response.json();
+
+        if (result.success) {
+
+            window.location.href = "thankyou.html";
+
+        } else {
+
+            alert(
+                result.message ||
+                "Registration could not be completed."
+            );
+
+            button.disabled = false;
+            button.innerText = "Submit Registration";
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Unable to connect to the server. Please try again."
+        );
+
+        button.disabled = false;
+        button.innerText = "Submit Registration";
+    }
+
+});
+
 </script>
 
      <footer class="site-footer">
