@@ -1,375 +1,2168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-        <title>Victorious Visuals -client regisration</title>
 
-        <!-- CSS FILES -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <meta charset="UTF-8">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Victorious Visuals - Client Registration</title>
 
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <!-- =====================================================
+         FAVICON
+    ====================================================== -->
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon"
+          type="image/png"
+          href="images/favicon.png">
 
 
-        <link rel="stylesheet" href="css/slick.css"/>
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
 
-        <link href="css/victorious-visuals.css" rel="stylesheet">
-        <link href="css/preloader.css" rel="stylesheet">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap"
+          rel="stylesheet">
 
-body {
-    background: #f5f5f5;
-}
 
-.container {
-    display: flex;
-    min-height: 100vh;
-}
+    <!-- =====================================================
+         BOOTSTRAP
+    ====================================================== -->
 
-/* LEFT SECTION */
-.left-side {
-    flex: 1;
-    background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72");
-    background-size: cover;
-    background-position: center;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    text-align: center;
-}
+    <link href="css/bootstrap.min.css"
+          rel="stylesheet">
 
-.left-side h1 {
-    font-size: 42px;
-    margin-bottom: 15px;
-}
 
-.left-side p {
-    font-size: 18px;
-    line-height: 1.6;
-}
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
 
-/* RIGHT SECTION */
-.right-side {
-    flex: 1;
-    background: white;
-    padding: 50px;
-    animation: slideIn 0.8s ease;
-}
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-.right-side h2 {
-    margin-bottom: 10px;
-    font-size: 32px;
-}
 
-.right-side p {
-    color: #666;
-    margin-bottom: 25px;
-}
+    <!-- =====================================================
+         OTHER CSS
+    ====================================================== -->
 
-form input {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 15px;
-}
+    <link rel="stylesheet"
+          href="css/slick.css">
 
-button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 30px;
-    background: black;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+    <link href="css/victorious-visuals.css"
+          rel="stylesheet">
 
-button:hover {
-    background: #00a6a6;
-    transform: scale(1.02);
-}
+    <link href="css/preloader.css"
+          rel="stylesheet">
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
 
-@media(max-width: 900px) {
-    .container {
-        flex-direction: column;
-    }
+    <!-- =====================================================
+         PAGE CSS
+    ====================================================== -->
 
-    .left-side {
-        min-height: 300px;
-    }
-}
-</style>
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+
+        body {
+            background: #f5f5f5;
+        }
+
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           LEFT SECTION
+        ====================================================== */
+
+        .left-side {
+
+            flex: 1;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.55),
+                    rgba(0,0,0,0.55)
+                ),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 40px;
+
+            text-align: center;
+        }
+
+
+        .left-side h1 {
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .left-side p {
+
+            font-size: 18px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           RIGHT SECTION
+        ====================================================== */
+
+        .right-side {
+
+            flex: 1;
+
+            background: white;
+
+            padding: 50px;
+
+            animation:
+                slideIn 0.8s ease;
+        }
+
+
+        .right-side h2 {
+
+            margin-bottom: 10px;
+
+            font-size: 32px;
+        }
+
+
+        .right-side > p {
+
+            color: #666;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =====================================================
+           FORM
+        ====================================================== */
+
+        #registrationForm input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 14px;
+
+            border:
+                1px solid #ddd;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        #registrationForm input:focus {
+
+            border-color: #00a6a6;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0,166,166,0.10);
+        }
+
+
+        #registrationForm input.input-error {
+
+            border-color: #dc3545;
+
+            background:
+                #fff8f8;
+        }
+
+
+        .optional-label {
+
+            display: block;
+
+            font-size: 12px;
+
+            color: #777;
+
+            margin-top: -8px;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =====================================================
+           BUTTON
+        ====================================================== */
+
+        .submit-button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: black;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition:
+                0.3s;
+        }
+
+
+        .submit-button:hover {
+
+            background: #00a6a6;
+
+            transform:
+                scale(1.02);
+        }
+
+
+        .submit-button:disabled {
+
+            background: #777;
+
+            cursor: not-allowed;
+
+            transform: none;
+        }
+
+
+        /* =====================================================
+           FORM MESSAGE
+        ====================================================== */
+
+        #formMessage {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 12px 14px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        #formMessage.error {
+
+            display: block;
+
+            background: #fff0f0;
+
+            color: #a00000;
+
+            border:
+                1px solid #f0b5b5;
+        }
+
+
+        /* =====================================================
+           CREDENTIAL SUCCESS PANEL
+        ====================================================== */
+
+        #credentialsPanel {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7ffff,
+                    #ffffff
+                );
+
+            border:
+                1px solid #d8eeee;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.08);
+        }
+
+
+        #credentialsPanel.show {
+
+            display: block;
+
+            animation:
+                credentialsAppear
+                0.45s ease;
+        }
+
+
+        .success-icon {
+
+            width: 58px;
+
+            height: 58px;
+
+            border-radius: 50%;
+
+            background: #00a6a6;
+
+            color: white;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 28px;
+
+            margin:
+                0 auto 15px;
+        }
+
+
+        .credentials-title {
+
+            text-align: center;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+
+            color: #111;
+        }
+
+
+        .credentials-subtitle {
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 20px;
+        }
+
+
+        .credential-box {
+
+            position: relative;
+
+            background: #f5f5f5;
+
+            border:
+                1px solid #ddd;
+
+            border-radius: 10px;
+
+            padding: 15px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .credential-label {
+
+            display: block;
+
+            font-size: 12px;
+
+            color: #666;
+
+            margin-bottom: 6px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        .credential-value {
+
+            display: block;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            color: #111;
+
+            word-break: break-all;
+
+            padding-right: 45px;
+        }
+
+
+        .copy-button {
+
+            position: absolute;
+
+            right: 10px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 36px;
+
+            height: 36px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #111;
+
+            color: white;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: 0.2s;
+        }
+
+
+        .copy-button:hover {
+
+            background: #00a6a6;
+        }
+
+
+        .security-warning {
+
+            margin-top: 18px;
+
+            padding: 13px;
+
+            border-radius: 8px;
+
+            background: #fff8e6;
+
+            border:
+                1px solid #f2d38a;
+
+            color: #765400;
+
+            font-size: 13px;
+
+            line-height: 1.55;
+        }
+
+
+        .credentials-actions {
+
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+
+        .credentials-actions button {
+
+            flex: 1;
+
+            padding: 12px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            transition: 0.2s;
+        }
+
+
+        .copy-all-button {
+
+            background: #111;
+
+            color: white;
+        }
+
+
+        .copy-all-button:hover {
+
+            background: #00a6a6;
+        }
+
+
+        .continue-button {
+
+            background: #00a6a6;
+
+            color: white;
+        }
+
+
+        .continue-button:hover {
+
+            background: #008b8b;
+        }
+
+
+        /* =====================================================
+           LOADING INDICATOR
+        ====================================================== */
+
+        .loading-spinner {
+
+            display: inline-block;
+
+            width: 16px;
+
+            height: 16px;
+
+            border:
+                2px solid
+                rgba(255,255,255,0.35);
+
+            border-top-color: white;
+
+            border-radius: 50%;
+
+            animation:
+                spin 0.7s linear infinite;
+
+            vertical-align: -3px;
+
+            margin-right: 7px;
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ====================================================== */
+
+        @keyframes slideIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateX(40px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateX(0);
+            }
+        }
+
+
+        @keyframes credentialsAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(15px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes spin {
+
+            to {
+
+                transform:
+                    rotate(360deg);
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media(max-width: 900px) {
+
+            .container {
+
+                flex-direction:
+                    column;
+            }
+
+
+            .left-side {
+
+                min-height: 300px;
+
+                padding: 30px 20px;
+            }
+
+
+            .left-side h1 {
+
+                font-size: 32px;
+            }
+
+
+            .left-side p {
+
+                font-size: 16px;
+            }
+
+
+            .right-side {
+
+                padding: 35px 22px;
+            }
+
+
+            .right-side h2 {
+
+                font-size: 27px;
+            }
+        }
+
+
+        @media(max-width: 500px) {
+
+            .left-side {
+
+                min-height: 260px;
+            }
+
+
+            .right-side {
+
+                padding: 28px 18px;
+            }
+
+
+            .credential-value {
+
+                font-size: 16px;
+            }
+
+
+            .credentials-actions {
+
+                flex-direction:
+                    column;
+            }
+        }
+
+    </style>
+
 </head>
+
+
 <body>
+
 
 <div class="container">
 
-    <!-- LEFT -->
+
+    <!-- =====================================================
+         LEFT SIDE
+    ====================================================== -->
+
     <div class="left-side">
+
         <div>
-            <h1>Victorious Visuals</h1>
+
+            <h1>
+                Victorious Visuals
+            </h1>
+
             <p>
-                Kindly fill in your business information to help us understand
-                your brand and deliver the right creative solutions for you.
+
+                Kindly fill in your business information
+                to help us understand your brand and
+                deliver the right creative solutions for you.
+
             </p>
+
         </div>
+
     </div>
 
-    <!-- RIGHT -->
+
+    <!-- =====================================================
+         RIGHT SIDE
+    ====================================================== -->
+
     <div class="right-side">
-        <h2>Client Registration</h2>
-        <p>Basic client information</p>
 
-<form id="registrationForm">
 
-            <input
-    type="text"
-    id="full_name"
-    placeholder="Full Name"
-    required
->
+        <!-- =================================================
+             REGISTRATION AREA
+        ================================================== -->
 
-           <input
-    type="text"
-    id="business_organization_name"
-    placeholder="Business / Organization Name"
-    required
->
+        <div id="registrationArea">
 
-            <input
-    type="text"
-    id="job_title_role"
-    placeholder="Job Title / Role"
-    required
->
+            <h2>
+                Client Registration
+            </h2>
 
-<input
-    type="text"
-    id="email"
-    placeholder="Personal / Business / Organization Email"
-    required
->
+            <p>
+                Basic client information
+            </p>
 
-<input
-    type="text"
-    id="business_location"
-    placeholder="Business Location (Optional)"
-    
->
 
-<input
-    type="text"
-    id="personal_contact"
-    placeholder="Personal Contact"
-    required
->
+            <!-- =============================================
+                 REGISTRATION FORM
+            ============================================== -->
 
-  <input
-    type="text"
-    id="personal_physical_location"
-    placeholder="Personal Physical Location"
-    required
->           
+            <form
+                id="registrationForm"
+                novalidate
+            >
 
-        
 
-            <button type="submit">
-                Submit Registration
-            </button>
-            <p style="margin-top:15px;"> <a href="index.html">Already Registered?</a></p>
-        </form>
+                <!-- FULL NAME -->
 
-        <iframe
-            name="hidden_iframe"
-            style="display:none;"
-            onload="if(submitted){window.location='thankyou.html';}">
-        </iframe>
+                <input
+                    type="text"
+                    id="full_name"
+                    placeholder="Full Name"
+                    autocomplete="name"
+                    maxlength="100"
+                    required
+                >
+
+
+                <!-- BUSINESS / ORGANIZATION -->
+
+                <input
+                    type="text"
+                    id="business_organization_name"
+                    placeholder="Business / Organization Name"
+                    autocomplete="organization"
+                    maxlength="150"
+                    required
+                >
+
+
+                <!-- ROLE -->
+
+                <input
+                    type="text"
+                    id="job_title_role"
+                    placeholder="Job Title / Role"
+                    maxlength="100"
+                    required
+                >
+
+
+                <!-- EMAIL -->
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Personal / Business / Organization Email"
+                    autocomplete="email"
+                    maxlength="150"
+                    required
+                >
+
+
+                <!-- BUSINESS LOCATION -->
+
+                <input
+                    type="text"
+                    id="business_location"
+                    placeholder="Business Location (Optional)"
+                    maxlength="200"
+                >
+
+                <span class="optional-label">
+                    Business Location is optional.
+                </span>
+
+
+                <!-- PERSONAL CONTACT -->
+
+                <input
+                    type="tel"
+                    id="personal_contact"
+                    placeholder="Personal Contact"
+                    autocomplete="tel"
+                    maxlength="30"
+                    required
+                >
+
+
+                <!-- PERSONAL PHYSICAL LOCATION -->
+
+                <input
+                    type="text"
+                    id="personal_physical_location"
+                    placeholder="Personal Physical Location"
+                    autocomplete="street-address"
+                    maxlength="250"
+                    required
+                >
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                    id="submitButton"
+                >
+                    Submit Registration
+                </button>
+
+
+                <!-- ALREADY REGISTERED -->
+
+                <p
+                    style="
+                        margin-top:15px;
+                        text-align:center;
+                    "
+                >
+
+                    <a href="index.html">
+                        Already Registered?
+                    </a>
+
+                </p>
+
+
+                <!-- ERROR MESSAGE -->
+
+                <div
+                    id="formMessage"
+                    role="alert"
+                    aria-live="polite"
+                ></div>
+
+
+            </form>
+
+        </div>
+
+
+        <!-- =================================================
+             AUTOMATIC CREDENTIALS PANEL
+        ================================================== -->
+
+        <div
+            id="credentialsPanel"
+            aria-live="polite"
+        >
+
+            <div class="success-icon">
+
+                <i class="bi bi-check-lg"></i>
+
+            </div>
+
+
+            <div class="credentials-title">
+
+                Registration Successful
+
+            </div>
+
+
+            <div class="credentials-subtitle">
+
+                Your Victorious Visuals client credentials
+                have been created automatically.
+
+                <br>
+
+                Please save them somewhere secure.
+
+            </div>
+
+
+            <!-- CLIENT ID -->
+
+            <div class="credential-box">
+
+                <span class="credential-label">
+                    Client ID
+                </span>
+
+                <span
+                    class="credential-value"
+                    id="clientIdDisplay"
+                >
+                    —
+                </span>
+
+
+                <button
+                    type="button"
+                    class="copy-button"
+                    id="copyClientId"
+                    title="Copy Client ID"
+                    aria-label="Copy Client ID"
+                >
+
+                    <i class="bi bi-copy"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- ACCESS CODE -->
+
+            <div class="credential-box">
+
+                <span class="credential-label">
+                    Access Code
+                </span>
+
+                <span
+                    class="credential-value"
+                    id="accessCodeDisplay"
+                >
+                    —
+                </span>
+
+
+                <button
+                    type="button"
+                    class="copy-button"
+                    id="copyAccessCode"
+                    title="Copy Access Code"
+                    aria-label="Copy Access Code"
+                >
+
+                    <i class="bi bi-copy"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- SECURITY WARNING -->
+
+            <div class="security-warning">
+
+                <strong>
+                    <i class="bi bi-shield-lock"></i>
+                    Important:
+                </strong>
+
+                Your Access Code is sensitive.
+
+                Save these credentials securely.
+
+                For security reasons, the original
+                Access Code is not stored in readable
+                form in our database and cannot simply
+                be retrieved later.
+
+            </div>
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="credentials-actions">
+
+
+                <button
+                    type="button"
+                    class="copy-all-button"
+                    id="copyAllCredentials"
+                >
+
+                    <i class="bi bi-copy"></i>
+
+                    Copy Credentials
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="continue-button"
+                    id="continueButton"
+                >
+
+                    Continue
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
 
     </div>
+
 </div>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="row">
+
+
+            <!-- =============================================
+                 COMPANY
+            ============================================== -->
+
+            <div
+                class="col-lg-3 col-10 me-auto mb-4"
+            >
+
+                <h4 class="text-white mb-3">
+
+                    <span>
+                        Victorious
+                    </span>
+
+                    Visuals
+
+                </h4>
+
+
+                <p
+                    class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0"
+                >
+
+                    © 2026
+
+                    <strong>
+                        Victorious Visuals
+                    </strong>
+
+                </p>
+
+
+                <p class="copyright-text">
+
+                    All Rights Reserved.
+
+                </p>
+
+            </div>
+
+
+            <!-- =============================================
+                 SITEMAP
+            ============================================== -->
+
+            <div class="col-lg-5 col-8">
+
+                <h5 class="text-white mb-3">
+                    Sitemap
+                </h5>
+
+
+                <ul
+                    class="footer-menu d-flex flex-wrap"
+                >
+
+                    <li class="footer-menu-item">
+
+                        <a
+                            href="about.html"
+                            class="footer-menu-link"
+                        >
+                            About Us
+                        </a>
+
+                    </li>
+
+
+                    <li class="footer-menu-item">
+
+                        <a
+                            href="portfolio.html"
+                            class="footer-menu-link"
+                        >
+                            Portfolio
+                        </a>
+
+                    </li>
+
+
+                    <li class="footer-menu-item">
+
+                        <a
+                            href="privacypolicy.html"
+                            class="footer-menu-link"
+                        >
+                            Privacy policy
+                        </a>
+
+                    </li>
+
+
+                    <li class="footer-menu-item">
+
+                        <a
+                            href="faq.html"
+                            class="footer-menu-link"
+                        >
+                            FAQs
+                        </a>
+
+                    </li>
+
+
+                    <li class="footer-menu-item">
+
+                        <a
+                            href="termsandconditions.html"
+                            class="footer-menu-link"
+                        >
+                            Terms & Conditions
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- =============================================
+                 SOCIAL
+            ============================================== -->
+
+            <div class="col-lg-3 col-4">
+
+                <h5 class="text-white mb-3">
+                    Social
+                </h5>
+
+
+                <ul class="social-icon">
+
+                    <div class="social-links">
+
+
+                        <!-- FACEBOOK -->
+
+                        <a
+                            href="https://www.facebook.com/designs.visuals"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                        >
+
+                            <i
+                                class="bi bi-facebook"
+                            ></i>
+
+                        </a>
+
+
+                        <!-- X -->
+
+                        <a
+                            href="https://x.com/designs_visuals"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="X"
+                        >
+
+                            <i
+                                class="bi bi-twitter-x"
+                            ></i>
+
+                        </a>
+
+
+                        <!-- PINTEREST -->
+
+                        <a
+                            href="https://www.pinterest.com/designs_visuals"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Pinterest"
+                        >
+
+                            <i
+                                class="bi bi-pinterest"
+                            ></i>
+
+                        </a>
+
+
+                        <!-- YOUTUBE -->
+
+                        <a
+                            href="https://www.youtube.com/@designs_visuals"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="YouTube"
+                        >
+
+                            <i
+                                class="bi bi-youtube"
+                            ></i>
+
+                        </a>
+
+
+                    </div>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
 
-const form = document.getElementById("registrationForm");
 
-form.addEventListener("submit", async function(event) {
+/* ============================================================
+   CONFIGURATION
+============================================================ */
 
-    event.preventDefault();
+/*
+   This is your deployed Cloudflare Worker.
+*/
 
-    const button = form.querySelector("button");
+const API_URL =
+    "https://graphics-team-api.victoriousvisuals-team.workers.dev";
 
-    button.disabled = true;
-    button.innerText = "Submitting...";
 
-    const data = {
+/* ============================================================
+   ELEMENTS
+============================================================ */
 
-        full_name:
-            document.getElementById("full_name").value.trim(),
+const form =
+    document.getElementById(
+        "registrationForm"
+    );
 
-        business_organization_name:
-            document.getElementById("business_organization_name").value.trim(),
 
-        job_title_role:
-            document.getElementById("job_title_role").value.trim(),
+const submitButton =
+    document.getElementById(
+        "submitButton"
+    );
 
-        email:
-            document.getElementById("email").value.trim(),
 
-        business_location:
-            document.getElementById("business_location").value.trim(),
+const formMessage =
+    document.getElementById(
+        "formMessage"
+    );
 
-        personal_contact:
-            document.getElementById("personal_contact").value.trim(),
 
-        personal_physical_location:
-            document.getElementById("personal_physical_location").value.trim()
-    };
+const registrationArea =
+    document.getElementById(
+        "registrationArea"
+    );
 
-    try {
 
-        const response = await fetch(
-            "https://graphics-team-api.victoriousvisuals-team.workers.dev/api/register",
-            {
-                method: "POST",
+const credentialsPanel =
+    document.getElementById(
+        "credentialsPanel"
+    );
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
 
-                body: JSON.stringify(data)
+const clientIdDisplay =
+    document.getElementById(
+        "clientIdDisplay"
+    );
+
+
+const accessCodeDisplay =
+    document.getElementById(
+        "accessCodeDisplay"
+    );
+
+
+const copyClientIdButton =
+    document.getElementById(
+        "copyClientId"
+    );
+
+
+const copyAccessCodeButton =
+    document.getElementById(
+        "copyAccessCode"
+    );
+
+
+const copyAllButton =
+    document.getElementById(
+        "copyAllCredentials"
+    );
+
+
+const continueButton =
+    document.getElementById(
+        "continueButton"
+    );
+
+
+/* ============================================================
+   TEMPORARY CREDENTIAL VARIABLES
+============================================================ */
+
+/*
+   These exist only in this browser page while the
+   registration-success screen is open.
+
+   We deliberately DO NOT save the Access Code into
+   localStorage, sessionStorage, cookies, or the URL.
+*/
+
+let generatedClientId = "";
+
+let generatedAccessCode = "";
+
+
+/* ============================================================
+   SHOW ERROR
+============================================================ */
+
+function showError(message) {
+
+    formMessage.textContent =
+        message;
+
+    formMessage.className =
+        "error";
+
+    formMessage.style.display =
+        "block";
+
+}
+
+
+/* ============================================================
+   CLEAR ERROR
+============================================================ */
+
+function clearError() {
+
+    formMessage.textContent =
+        "";
+
+    formMessage.className =
+        "";
+
+    formMessage.style.display =
+        "none";
+
+}
+
+
+/* ============================================================
+   VALIDATE FIELD
+============================================================ */
+
+function validateField(
+    element,
+    message
+) {
+
+    const value =
+        element.value.trim();
+
+
+    if (!value) {
+
+        element.classList.add(
+            "input-error"
+        );
+
+        return false;
+    }
+
+
+    element.classList.remove(
+        "input-error"
+    );
+
+    return true;
+}
+
+
+/* ============================================================
+   EMAIL VALIDATION
+============================================================ */
+
+function isValidEmail(email) {
+
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        .test(email);
+}
+
+
+/* ============================================================
+   CONTACT VALIDATION
+============================================================ */
+
+function isValidContact(contact) {
+
+    /*
+       Allow:
+
+       +256 700 000 000
+       0700000000
+       256700000000
+       0700-000-000
+
+       We only require at least 7 digits.
+    */
+
+    const digits =
+        contact.replace(
+            /\D/g,
+            ""
+        );
+
+
+    return digits.length >= 7;
+}
+
+
+/* ============================================================
+   RESET INPUT ERROR WHEN USER TYPES
+============================================================ */
+
+const inputs =
+    form.querySelectorAll(
+        "input"
+    );
+
+
+inputs.forEach(
+    function(input) {
+
+        input.addEventListener(
+            "input",
+            function() {
+
+                input.classList.remove(
+                    "input-error"
+                );
+
+                clearError();
+
             }
         );
 
-        const result = await response.json();
+    }
+);
 
-        if (result.success) {
 
-            window.location.href = "thankyou.html";
+/* ============================================================
+   REGISTRATION SUBMISSION
+============================================================ */
 
-        } else {
+form.addEventListener(
+    "submit",
+    async function(event) {
 
-            alert(
-                result.message ||
-                "Registration could not be completed."
+        event.preventDefault();
+
+
+        clearError();
+
+
+        /* ----------------------------------------------------
+           GET VALUES
+        ---------------------------------------------------- */
+
+        const fullName =
+            document
+                .getElementById("full_name")
+                .value
+                .trim();
+
+
+        const businessName =
+            document
+                .getElementById(
+                    "business_organization_name"
+                )
+                .value
+                .trim();
+
+
+        const role =
+            document
+                .getElementById(
+                    "job_title_role"
+                )
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim()
+                .toLowerCase();
+
+
+        const businessLocation =
+            document
+                .getElementById(
+                    "business_location"
+                )
+                .value
+                .trim();
+
+
+        const personalContact =
+            document
+                .getElementById(
+                    "personal_contact"
+                )
+                .value
+                .trim();
+
+
+        const physicalLocation =
+            document
+                .getElementById(
+                    "personal_physical_location"
+                )
+                .value
+                .trim();
+
+
+        /* ----------------------------------------------------
+           VALIDATION
+        ---------------------------------------------------- */
+
+        let valid =
+            true;
+
+
+        if (!fullName) {
+
+            document
+                .getElementById("full_name")
+                .classList.add(
+                    "input-error"
+                );
+
+            valid = false;
+        }
+
+
+        if (!businessName) {
+
+            document
+                .getElementById(
+                    "business_organization_name"
+                )
+                .classList.add(
+                    "input-error"
+                );
+
+            valid = false;
+        }
+
+
+        if (!role) {
+
+            document
+                .getElementById(
+                    "job_title_role"
+                )
+                .classList.add(
+                    "input-error"
+                );
+
+            valid = false;
+        }
+
+
+        if (
+            !email ||
+            !isValidEmail(email)
+        ) {
+
+            document
+                .getElementById("email")
+                .classList.add(
+                    "input-error"
+                );
+
+            valid = false;
+        }
+
+
+        if (
+            !personalContact ||
+            !isValidContact(
+                personalContact
+            )
+        ) {
+
+            document
+                .getElementById(
+                    "personal_contact"
+                )
+                .classList.add(
+                    "input-error"
+                );
+
+            valid = false;
+        }
+
+
+        if (!physicalLocation) {
+
+            document
+                .getElementById(
+                    "personal_physical_location"
+                )
+                .classList.add(
+                    "input-error"
+                );
+
+            valid = false;
+        }
+
+
+        if (!valid) {
+
+            showError(
+                "Please complete all required fields correctly."
             );
 
-            button.disabled = false;
-            button.innerText = "Submit Registration";
+            return;
         }
+
+
+        /* ----------------------------------------------------
+           DISABLE SUBMIT
+        ---------------------------------------------------- */
+
+        submitButton.disabled =
+            true;
+
+
+        submitButton.innerHTML =
+
+            '<span class="loading-spinner"></span>' +
+            'Creating your client account...';
+
+
+        /* ----------------------------------------------------
+           DATA
+        ---------------------------------------------------- */
+
+        const data = {
+
+            full_name:
+                fullName,
+
+            business_organization_name:
+                businessName,
+
+            job_title_role:
+                role,
+
+            email:
+                email,
+
+            business_location:
+                businessLocation,
+
+            personal_contact:
+                personalContact,
+
+            personal_physical_location:
+                physicalLocation
+        };
+
+
+        try {
+
+
+            /* ------------------------------------------------
+               SEND TO CLOUDFLARE WORKER
+            ------------------------------------------------ */
+
+            const response =
+                await fetch(
+                    API_URL +
+                    "/api/register",
+                    {
+
+                        method:
+                            "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify(
+                                data
+                            )
+                    }
+                );
+
+
+            /* ------------------------------------------------
+               READ RESPONSE
+            ------------------------------------------------ */
+
+            let result;
+
+            try {
+
+                result =
+                    await response.json();
+
+            } catch (jsonError) {
+
+                throw new Error(
+                    "The server returned an invalid response."
+                );
+            }
+
+
+            /* ------------------------------------------------
+               HANDLE FAILURE
+            ------------------------------------------------ */
+
+            if (
+                !response.ok ||
+                !result.success
+            ) {
+
+                showError(
+                    result.message ||
+                    "Registration could not be completed. Please try again."
+                );
+
+
+                submitButton.disabled =
+                    false;
+
+
+                submitButton.innerHTML =
+                    "Submit Registration";
+
+
+                return;
+            }
+
+
+            /* ------------------------------------------------
+               VERIFY CREDENTIALS WERE RETURNED
+            ------------------------------------------------ */
+
+            if (
+                !result.client ||
+                !result.client.client_id ||
+                !result.client.access_code
+            ) {
+
+                showError(
+                    "Registration was saved, but the client credentials were not returned. Please contact Victorious Visuals before submitting again."
+                );
+
+
+                submitButton.disabled =
+                    false;
+
+
+                submitButton.innerHTML =
+                    "Submit Registration";
+
+
+                return;
+            }
+
+
+            /* ------------------------------------------------
+               STORE TEMPORARILY IN MEMORY ONLY
+            ------------------------------------------------ */
+
+            generatedClientId =
+                result.client.client_id;
+
+
+            generatedAccessCode =
+                result.client.access_code;
+
+
+            /* ------------------------------------------------
+               DISPLAY CREDENTIALS
+            ------------------------------------------------ */
+
+            clientIdDisplay.textContent =
+                generatedClientId;
+
+
+            accessCodeDisplay.textContent =
+                generatedAccessCode;
+
+
+            /* ------------------------------------------------
+               HIDE FORM
+            ------------------------------------------------ */
+
+            registrationArea.style.display =
+                "none";
+
+
+            /* ------------------------------------------------
+               SHOW CREDENTIALS
+            ------------------------------------------------ */
+
+            credentialsPanel.classList.add(
+                "show"
+            );
+
+
+            /* ------------------------------------------------
+               MOVE VIEW TO CREDENTIALS
+            ------------------------------------------------ */
+
+            credentialsPanel.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+
+        } catch (error) {
+
+            console.error(
+                "Registration error:",
+                error
+            );
+
+
+            showError(
+                "Unable to connect to the registration server. Please check your internet connection and try again."
+            );
+
+
+            submitButton.disabled =
+                false;
+
+
+            submitButton.innerHTML =
+                "Submit Registration";
+        }
+
+    }
+);
+
+
+/* ============================================================
+   COPY TEXT HELPER
+============================================================ */
+
+async function copyText(
+    text,
+    button
+) {
+
+    if (!text) {
+
+        return;
+    }
+
+
+    try {
+
+        await navigator.clipboard.writeText(
+            text
+        );
+
+
+        const originalHTML =
+            button.innerHTML;
+
+
+        button.innerHTML =
+            '<i class="bi bi-check-lg"></i>';
+
+
+        setTimeout(
+            function() {
+
+                button.innerHTML =
+                    originalHTML;
+
+            },
+            1500
+        );
+
 
     } catch (error) {
 
-        console.error(error);
+        /*
+           Fallback for browsers where
+           navigator.clipboard isn't available.
+        */
 
-        alert(
-            "Unable to connect to the server. Please try again."
+        const temporaryInput =
+            document.createElement(
+                "textarea"
+            );
+
+
+        temporaryInput.value =
+            text;
+
+
+        temporaryInput.style.position =
+            "fixed";
+
+        temporaryInput.style.opacity =
+            "0";
+
+
+        document.body.appendChild(
+            temporaryInput
         );
 
-        button.disabled = false;
-        button.innerText = "Submit Registration";
-    }
 
-});
+        temporaryInput.select();
+
+
+        try {
+
+            document.execCommand(
+                "copy"
+            );
+
+        } catch (copyError) {
+
+            alert(
+                "Unable to copy automatically. Please select and copy the credential manually."
+            );
+
+        }
+
+
+        temporaryInput.remove();
+    }
+}
+
+
+/* ============================================================
+   COPY CLIENT ID
+============================================================ */
+
+copyClientIdButton.addEventListener(
+    "click",
+    function() {
+
+        copyText(
+            generatedClientId,
+            copyClientIdButton
+        );
+
+    }
+);
+
+
+/* ============================================================
+   COPY ACCESS CODE
+============================================================ */
+
+copyAccessCodeButton.addEventListener(
+    "click",
+    function() {
+
+        copyText(
+            generatedAccessCode,
+            copyAccessCodeButton
+        );
+
+    }
+);
+
+
+/* ============================================================
+   COPY BOTH CREDENTIALS
+============================================================ */
+
+copyAllButton.addEventListener(
+    "click",
+    function() {
+
+        if (
+            !generatedClientId ||
+            !generatedAccessCode
+        ) {
+
+            return;
+        }
+
+
+        const credentials =
+
+            "Victorious Visuals Client Credentials\n\n" +
+
+            "Client ID: " +
+            generatedClientId +
+
+            "\n\n" +
+
+            "Access Code: " +
+            generatedAccessCode;
+
+
+        copyText(
+            credentials,
+            copyAllButton
+        );
+
+
+        const originalHTML =
+            copyAllButton.innerHTML;
+
+
+        copyAllButton.innerHTML =
+            '<i class="bi bi-check-lg"></i> Credentials Copied';
+
+
+        setTimeout(
+            function() {
+
+                copyAllButton.innerHTML =
+                    originalHTML;
+
+            },
+            2000
+        );
+
+    }
+);
+
+
+/* ============================================================
+   CONTINUE
+============================================================ */
+
+continueButton.addEventListener(
+    "click",
+    function() {
+
+        /*
+           We now send the user to the existing
+           thank-you page.
+
+           The credentials are NOT put in the URL.
+        */
+
+        window.location.href =
+            "thankyou.html";
+
+    }
+);
+
 
 </script>
 
-     <footer class="site-footer">
-            <div class="container">
-                <div class="row">
-
-                     <div class="col-lg-3 col-10 me-auto mb-4">
-                        <h4 class="text-white mb-3"> <span>Victorious</span> Visuals</h4>
-                        <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">© 2026 <strong>Victorious Visuals</strong></p>
-    
-                        <p class="copyright-text">All Rights Reserved.</p>
-                    </div>
-
-                    <div class="col-lg-5 col-8">
-                        <h5 class="text-white mb-3">Sitemap</h5>
-
-                        <ul class="footer-menu d-flex flex-wrap">
-                            <li class="footer-menu-item"><a href="about.html" class="footer-menu-link">About Us</a></li>
-
-                            <li class="footer-menu-item"><a href="portfolio.html" class="footer-menu-link">Portfolio</a></li>
-
-                            <li class="footer-menu-item"><a href="privacypolicy.html" class="footer-menu-link">Privacy policy</a></li>
-
-                            <li class="footer-menu-item"><a href="faq.html" class="footer-menu-link">FAQs</a></li>
-
-                            <li class="footer-menu-item"><a href="termsandconditions.html" class="footer-menu-link">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-4">
-                        <h5 class="text-white mb-3">Social</h5>
-
-                        <ul class="social-icon">
-
-                            <div class="social-links">
-
-
-                            
-                            <a href="https://www.facebook.com/designs.visuals" target="_blank">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-
-                            <a href="https://x.com/designs_visuals" target="_blank">
-                                <i class="bi bi-twitter-x"></i>
-                            </a>
-                            
-                                
-                                <a href="https://www.pinterest.com/designs_visuals" target="_blank">
-                                    <i class="bi bi-pinterest"></i>
-                                </a>
-
-                                <a href="https://www.youtube.com/@designs_visuals" target="_blank">
-                                    <i class="bi bi-youtube"></i>
-                                </a>
-
-                            </div>
-
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </footer>
 
 </body>
 </html>
