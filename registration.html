@@ -753,6 +753,11 @@
     box-sizing: border-box;
 }
 
+.phone-field input.input-error {
+    border-color: #dc3545 !important;
+    background: #fff8f8;
+}
+
 .phone-field input:focus {
     border-color: #2563eb;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
@@ -896,7 +901,8 @@
                 </span>
 
 
-              
+                <!-- PERSONAL CONTACT -->
+
                <!-- PERSONAL CONTACT -->
 <div class="phone-field">
     <label for="personal_contact">Personal Contact</label>
@@ -921,17 +927,15 @@
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js"></script>
 
 <script>
-   const phoneInput = document.querySelector("#personal_contact");
+    const phoneInput = document.querySelector("#personal_contact");
 
 const iti = window.intlTelInput(phoneInput, {
     initialCountry: "ug",
     separateDialCode: true,
     nationalMode: true,
     preferredCountries: ["ug", "ke", "tz", "rw", "us", "gb"],
-    loadUtils: () =>
-        import(
-            "https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/utils.js"
-        )
+    utilsScript:
+        "https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/utils.js"
 });
 </script>
 
@@ -1564,33 +1568,85 @@ function isValidEmail(email) {
    CONTACT VALIDATION
 ============================================================ */
 
-function isValidContact(contact) {
+function getNationalPhoneDigits() {
 
-    /*
-       Allow:
+    const selectedCountry =
+        iti.getSelectedCountryData();
 
-       +256 700 000 000
-       0700000000
-       256700000000
-       0700-000-000
-
-       We only require at least 7 digits.
-    */
-
-    const digits =
-        contact.replace(
-            /\D/g,
-            ""
+    const dialCode =
+        String(
+            selectedCountry.dialCode || ""
         );
 
+    let digits =
+        phoneInput.value.replace(/\D/g, "");
 
-    return digits.length >= 7;
+    /*
+       In case the field contains +256XXXXXXXXX,
+       remove the selected country code before
+       checking the required 9 national digits.
+    */
+    if (
+        dialCode &&
+        digits.startsWith(dialCode)
+    ) {
+        digits =
+            digits.slice(dialCode.length);
+    }
+
+    return digits;
+}
+
+function isValidContact() {
+
+    return /^\d{9}$/.test(
+        getNationalPhoneDigits()
+    );
+}
+
+function getInternationalPhone() {
+
+    const selectedCountry =
+        iti.getSelectedCountryData();
+
+    const dialCode =
+        String(
+            selectedCountry.dialCode || ""
+        );
+
+    const digits =
+        getNationalPhoneDigits();
+
+    return "+" + dialCode + digits;
 }
 
 
 /* ============================================================
    RESET INPUT ERROR WHEN USER TYPES
 ============================================================ */
+
+/*
+    Keep only the 9 national digits in the visible phone field.
+    The selected country code stays in the country selector and
+    is added to the value sent to Cloudflare.
+*/
+phoneInput.addEventListener(
+    "input",
+    function() {
+
+        const digits =
+            phoneInput.value.replace(/\\D/g, "");
+
+        phoneInput.value =
+            digits.slice(0, 9);
+
+        phoneInput.classList.remove(
+            "input-error"
+        );
+
+        clearError();
+    }
+);
 
 const inputs =
     form.querySelectorAll(
@@ -1678,13 +1734,13 @@ form.addEventListener(
                 .trim();
 
 
+        /*
+            Validate the 9 national digits first.
+            The country code is added separately when
+            the data is sent to Cloudflare.
+        */
         const personalContact =
-            document
-                .getElementById(
-                    "personal_contact"
-                )
-                .value
-                .trim();
+            getInternationalPhone();
 
 
         const physicalLocation =
@@ -1760,21 +1816,20 @@ form.addEventListener(
 
 
         if (
-            !personalContact ||
-            !isValidContact(
-                personalContact
-            )
+            !isValidContact()
         ) {
 
-            document
-                .getElementById(
-                    "personal_contact"
-                )
-                .classList.add(
-                    "input-error"
-                );
+            phoneInput.classList.add(
+                "input-error"
+            );
 
             valid = false;
+
+        } else {
+
+            phoneInput.classList.remove(
+                "input-error"
+            );
         }
 
 
