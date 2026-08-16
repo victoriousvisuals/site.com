@@ -921,21 +921,18 @@
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js"></script>
 
 <script>
-    const phoneInput = document.querySelector("#personal_contact");
+   const phoneInput = document.querySelector("#personal_contact");
 
-    const iti = window.intlTelInput(phoneInput, {
-        initialCountry: "ug",
-        separateDialCode: true,
-        nationalMode: true,
-        preferredCountries: ["ug", "ke", "tz", "rw", "us", "gb"],
-        utilsScript:
+const iti = window.intlTelInput(phoneInput, {
+    initialCountry: "ug",
+    separateDialCode: true,
+    nationalMode: true,
+    preferredCountries: ["ug", "ke", "tz", "rw", "us", "gb"],
+    loadUtils: () =>
+        import(
             "https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/utils.js"
-    });
-
-    // Before submitting, you can get the complete international number:
-    document.querySelector("form").addEventListener("submit", function () {
-        phoneInput.value = iti.getNumber();
-    });
+        )
+});
 </script>
 
 
