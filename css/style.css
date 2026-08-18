@@ -33,16 +33,13 @@ p {
   color: #818385;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+ h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: "Work Sans", sans-serif;
   color: #000;
   font-weight: 600;
 }
 
-h1, .h1 {
-  font-size: 45px;
-  text-transform: none;
-}
+
 
 h2, .h2 {
   font-size: 42px;
@@ -201,13 +198,99 @@ a:hover {
     font-size: 32px;
     line-height: 42px;
   }
-  .btn-group, .btn-group-vertical {
-    display: block;
-  }
-  .btn-group > .btn {
-    padding: 20px;
-  }
+/* ================================
+   MODERN FILTER BUTTONS
+   ================================ */
 
+.btn-group {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+/* Individual buttons */
+.btn-group > .btn {
+    padding: 12px 22px !important;
+    background: #ffffff !important;
+    color: #333333 !important;
+
+    border: 1px solid #e5e7eb !important;
+    border-radius: 12px !important;
+
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Remove Bootstrap's connected-button appearance */
+.btn-group > .btn:first-child,
+.btn-group > .btn:last-child,
+.btn-group > .btn:not(:first-child):not(:last-child) {
+    border-radius: 12px !important;
+}
+
+/* Hover effect */
+.btn-group > .btn:hover {
+    background: #009eaa !important;
+      color: #ffffff !important;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(26, 115, 232, 0.15);
+}
+
+/* Active / selected button */
+.btn-group > .btn.active {
+    background: #d4d0d0 50%;
+    color: #000000 !important;
+
+    border-color: transparent !important;
+    border-radius: 12px !important;
+
+    box-shadow:
+        0 7px 18px rgba(18, 19, 20, 0.25);
+}
+
+/* Active button hover */
+.btn-group > .btn.active:hover {
+    color: #ffffff !important;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Hide the radio buttons */
+.btn-group > .btn input[type="radio"] {
+    display: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 576px) {
+
+    .btn-group {
+        gap: 8px;
+    }
+
+    .btn-group > .btn {
+        padding: 10px 16px !important;
+        font-size: 14px;
+       border-radius: 12px !important;
+    }
+}
 .portfolio {
   padding-bottom: 100px;
 }
