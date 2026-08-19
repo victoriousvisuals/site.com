@@ -4458,3 +4458,1129 @@ button:focus:not(:focus-visible) {
         height: 13px;
     }
 }
+
+/* ==========================================================
+   VICTORIOUS VISUALS — HOMEPAGE FINAL STABILITY FIX
+   Paste this at the VERY BOTTOM of the homepage CSS
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   BASIC HOMEPAGE CONTROL
+   ---------------------------------------------------------- */
+
+.vv-home {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: #ffffff;
+}
+
+.vv-home *,
+.vv-hero *,
+.vv-slider * {
+    box-sizing: border-box;
+}
+
+
+/* ----------------------------------------------------------
+   COMMON CONTENT WIDTH
+   ---------------------------------------------------------- */
+
+.vv-container,
+.vv-hero-container {
+    width: min(1180px, calc(100% - 40px));
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ==========================================================
+   HERO — DESKTOP
+   ========================================================== */
+
+.vv-hero {
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    padding: 45px 0 35px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+
+.vv-hero-container {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(380px, 0.95fr);
+
+    align-items: center;
+
+    gap: 45px;
+
+    min-height: 420px;
+}
+
+
+/* ----------------------------------------------------------
+   HERO TEXT
+   ---------------------------------------------------------- */
+
+.vv-hero-content {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+    max-width: 600px;
+
+    padding: 20px 0;
+}
+
+
+.vv-hero-label {
+    display: block;
+
+    margin: 0 0 14px;
+
+    color: #009eaa;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+}
+
+
+.vv-hero-content h1 {
+    margin: 0 0 18px;
+
+    max-width: 620px;
+
+    color: #111111;
+
+    font-size: clamp(40px, 4.5vw, 62px);
+
+    font-weight: 800;
+
+    line-height: 1.06;
+
+    letter-spacing: -1.5px;
+}
+
+
+.vv-hero-content h1 span {
+    color: #009eaa;
+}
+
+
+.vv-hero-content p {
+    max-width: 530px;
+
+    margin: 0 0 25px;
+
+    color: #5f5f5f;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* ----------------------------------------------------------
+   HERO BUTTON AREA
+   ---------------------------------------------------------- */
+
+.vv-hero-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+
+
+.vv-hero-button {
+    flex: 0 0 auto;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 8px 10px 8px 20px;
+
+    border: 0;
+
+    border-radius: 25px;
+
+    background: #009eaa;
+
+    color: #ffffff !important;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.vv-hero-button:hover {
+    background: #007f89;
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(0, 158, 170, .22);
+}
+
+
+.vv-button-arrow {
+    flex: 0 0 auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    margin-left: 4px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #009eaa;
+
+    font-size: 17px;
+
+    transition: transform .25s ease;
+}
+
+
+.vv-hero-button:hover .vv-button-arrow {
+    transform: rotate(45deg);
+}
+
+
+/* ----------------------------------------------------------
+   PHONE CONTACT
+   ---------------------------------------------------------- */
+
+.vv-hero-contact {
+    flex: 0 0 auto;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #222222 !important;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+
+.vv-phone-icon {
+    flex: 0 0 auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #009eaa;
+
+    color: #ffffff;
+
+    font-size: 17px;
+}
+
+
+.vv-hero-contact small {
+    display: block;
+
+    margin: 0 0 2px;
+
+    color: #777777;
+
+    font-size: 12px;
+}
+
+
+.vv-hero-contact strong {
+    display: block;
+
+    color: #222222;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================================
+   HERO IMAGE — STABLE VERSION
+   ========================================================== */
+
+.vv-hero-image {
+    position: relative;
+
+    width: 100%;
+    height: 420px;
+    min-height: 0;
+
+    overflow: hidden;
+
+    border-radius: 150px 0 0 150px;
+
+    background: #edf7f8;
+}
+
+
+.vv-hero-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+}
+
+
+/* Keep the image overlay behind content */
+
+.vv-hero-image::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.65),
+            rgba(255,255,255,0)
+        );
+}
+
+
+/* ==========================================================
+   DECORATIVE HERO SHAPES
+   ========================================================== */
+
+.vv-hero-shape {
+    position: absolute;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   BANNER SECTION
+   ========================================================== */
+
+.vv-banner-section {
+    width: 100%;
+
+    padding: 20px 0 5px;
+
+    background: #ffffff;
+}
+
+
+/* ==========================================================
+   SLIDER
+   ========================================================== */
+
+.vv-slider {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    border: 2px solid #009eaa;
+
+    border-radius: 28px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.07);
+}
+
+
+.vv-slide {
+    position: relative;
+
+    display: none;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+.vv-slide.active {
+    display: block;
+}
+
+
+.vv-slide img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    object-fit: cover;
+}
+
+
+/* ==========================================================
+   SLIDER ARROWS
+   ========================================================== */
+
+.vv-slider-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: rgba(0,158,170,.95);
+
+    color: #ffffff;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        opacity .2s ease;
+}
+
+
+.vv-slider-arrow:hover {
+    background: #007f89;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+
+.vv-slider-prev {
+    left: 12px;
+}
+
+
+.vv-slider-next {
+    right: 12px;
+}
+
+
+/* ==========================================================
+   SLIDER DOTS
+   ========================================================== */
+
+.vv-banner-dots {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 16px 0 18px;
+
+    background: #ffffff;
+}
+
+
+.vv-banner-dots .vv-dot {
+    flex: 0 0 auto;
+
+    width: 12px;
+    height: 12px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #cbdfe1;
+
+    cursor: pointer;
+
+    appearance: none;
+
+    transition:
+        width .25s ease,
+        height .25s ease,
+        background .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.vv-banner-dots .vv-dot:hover {
+    background: #007f89;
+
+    transform: scale(1.12);
+}
+
+
+.vv-banner-dots .vv-dot.active {
+    width: 15px;
+    height: 15px;
+
+    background: #009eaa;
+
+    box-shadow:
+        0 3px 10px rgba(0,158,170,.22);
+
+    transform: scale(1);
+}
+
+
+/* ==========================================================
+   CTA CARD
+   ========================================================== */
+
+.vv-cta-section {
+    width: 100%;
+
+    padding: 20px 0 65px;
+
+    background: #ffffff;
+}
+
+
+.vv-cta-card {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, 380px)
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 40px;
+
+    padding: 14px;
+
+    border: 2px solid #444444;
+
+    border-radius: 28px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.05);
+}
+
+
+.vv-cta-image {
+    width: 100%;
+    height: 310px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+}
+
+
+.vv-cta-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.vv-cta-content {
+    width: 100%;
+
+    padding: 20px 30px 20px 0;
+}
+
+
+.vv-cta-content h1 {
+    max-width: 650px;
+
+    margin: 0 0 15px;
+
+    color: #009eaa;
+
+    font-size: clamp(34px, 4vw, 55px);
+
+    font-weight: 800;
+
+    line-height: 1.06;
+}
+
+
+/* ==========================================================
+   SERVICES
+   ========================================================== */
+
+.vv-services-section {
+    width: 100%;
+
+    padding: 25px 0 75px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f7fbfc 100%
+        );
+}
+
+
+.vv-section-heading {
+    width: 100%;
+
+    max-width: 700px;
+
+    margin: 0 auto 40px;
+
+    text-align: center;
+}
+
+
+.vv-services-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    width: 100%;
+}
+
+
+.vv-service-card {
+    width: 100%;
+    min-width: 0;
+
+    min-height: 280px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 28px;
+
+    border: 1px solid #e4eeee;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 7px 22px rgba(0,0,0,.045);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+
+.vv-service-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #009eaa;
+
+    box-shadow:
+        0 16px 35px rgba(0,158,170,.12);
+}
+
+
+/* ==========================================================
+   VIDEO SECTION
+   ========================================================== */
+
+.vv-video-section {
+    width: 100%;
+
+    padding: 20px 0 80px;
+
+    background: #ffffff;
+}
+
+
+.vv-video-card {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.25fr)
+        minmax(300px, .75fr);
+
+    align-items: center;
+
+    gap: 40px;
+
+    padding: 30px;
+
+    border: 2px solid #009eaa;
+
+    border-radius: 28px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.06);
+}
+
+
+.vv-video-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    aspect-ratio: 16 / 9;
+
+    border-radius: 18px;
+
+    background: #111111;
+}
+
+
+.vv-video-wrapper iframe {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    .vv-hero-container {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(300px, .85fr);
+
+        gap: 25px;
+    }
+
+
+    .vv-hero-image {
+        height: 360px;
+
+        border-radius:
+            110px 0 0 110px;
+    }
+
+
+    .vv-hero-content h1 {
+        font-size: 44px;
+    }
+
+
+    .vv-cta-card {
+        grid-template-columns:
+            minmax(250px, 300px)
+            minmax(0, 1fr);
+
+        gap: 25px;
+    }
+
+
+    .vv-services-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .vv-video-card {
+        gap: 30px;
+
+        padding: 25px;
+    }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    .vv-container,
+    .vv-hero-container {
+        width: calc(100% - 28px);
+
+        max-width: none;
+    }
+
+
+    /* ------------------------------------------------------
+       HERO
+       ------------------------------------------------------ */
+
+    .vv-hero {
+        padding: 25px 0 30px;
+    }
+
+
+    .vv-hero-container {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 25px;
+
+        min-height: 0;
+    }
+
+
+    .vv-hero-content {
+        width: 100%;
+
+        max-width: none;
+
+        padding: 5px 0;
+    }
+
+
+    .vv-hero-content h1 {
+        max-width: 100%;
+
+        font-size: 37px;
+
+        line-height: 1.08;
+
+        letter-spacing: -.8px;
+    }
+
+
+    .vv-hero-content p {
+        max-width: 100%;
+
+        font-size: 15px;
+
+        line-height: 1.65;
+    }
+
+
+    .vv-hero-actions {
+        align-items: flex-start;
+
+        gap: 14px;
+    }
+
+
+    .vv-hero-image {
+        width: 100%;
+
+        height: 270px;
+
+        min-height: 0;
+
+        border-radius: 22px;
+    }
+
+
+    /* ------------------------------------------------------
+       BANNER
+       ------------------------------------------------------ */
+
+    .vv-banner-section {
+        padding: 10px 0 0;
+    }
+
+
+    .vv-slider {
+        border-radius: 20px;
+
+        border-width: 1.5px;
+    }
+
+
+    .vv-slider-arrow {
+        width: 32px;
+        height: 32px;
+
+        font-size: 23px;
+    }
+
+
+    .vv-slider-prev {
+        left: 7px;
+    }
+
+
+    .vv-slider-next {
+        right: 7px;
+    }
+
+
+    .vv-banner-dots {
+        gap: 9px;
+
+        padding: 12px 0 15px;
+    }
+
+
+    /* ------------------------------------------------------
+       CTA
+       ------------------------------------------------------ */
+
+    .vv-cta-section {
+        padding: 20px 0 50px;
+    }
+
+
+    .vv-cta-card {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+        padding: 10px;
+
+        border-radius: 22px;
+    }
+
+
+    .vv-cta-image {
+        height: 240px;
+
+        border-radius: 18px;
+    }
+
+
+    .vv-cta-content {
+        padding: 10px 12px 18px;
+    }
+
+
+    .vv-cta-content h1 {
+        font-size: 33px;
+    }
+
+
+    /* ------------------------------------------------------
+       SERVICES
+       ------------------------------------------------------ */
+
+    .vv-services-section {
+        padding: 25px 0 55px;
+    }
+
+
+    .vv-section-heading {
+        margin-bottom: 28px;
+    }
+
+
+    .vv-section-heading h2 {
+        font-size: 33px;
+    }
+
+
+    .vv-services-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .vv-service-card {
+        min-height: 0;
+
+        padding: 24px;
+
+        border-radius: 20px;
+    }
+
+
+    /* ------------------------------------------------------
+       VIDEO
+       ------------------------------------------------------ */
+
+    .vv-video-section {
+        padding: 15px 0 55px;
+    }
+
+
+    .vv-video-card {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+
+        padding: 14px;
+
+        border-radius: 22px;
+    }
+
+
+    .vv-video-content {
+        padding: 5px 10px 15px;
+    }
+
+
+    .vv-video-content h2 {
+        font-size: 30px;
+    }
+}
+
+
+/* ==========================================================
+   SMALL PHONES
+   ========================================================== */
+
+@media (max-width: 400px) {
+
+    .vv-container,
+    .vv-hero-container {
+        width: calc(100% - 20px);
+    }
+
+
+    .vv-hero-content h1 {
+        font-size: 32px;
+    }
+
+
+    .vv-hero-actions {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .vv-hero-button,
+    .vv-hero-contact {
+        max-width: 100%;
+    }
+
+
+    .vv-hero-image {
+        height: 230px;
+
+        border-radius: 20px;
+    }
+
+
+    .vv-cta-content h1 {
+        font-size: 29px;
+    }
+
+
+    .vv-service-card {
+        padding: 21px;
+    }
+}
+
+
+/* ==========================================================
+   PREVENT HORIZONTAL SCROLLING
+   ========================================================== */
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
