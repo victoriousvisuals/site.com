@@ -2835,3 +2835,1626 @@ button:focus:not(:focus-visible) {
     }
 }
 
+
+/* ==========================================================
+   VICTORIOUS VISUALS
+   MODERN HOME PAGE
+   ========================================================== */
+
+
+/* ==========================================================
+   GLOBAL HOME SETTINGS
+   ========================================================== */
+
+.vv-home {
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.vv-container {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+
+/* ==========================================================
+   1. WEB BANNER
+   ========================================================== */
+
+.vv-banner-section {
+    padding: 30px 0 10px;
+}
+
+.vv-banner {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+
+    border-radius: 30px;
+
+    background: #ffffff;
+
+    border: 2px solid #009eaa;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.vv-banner-image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+}
+
+
+/* Banner dots */
+
+.vv-banner-dots {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 18px 0 15px;
+}
+
+.vv-dot {
+    width: 14px;
+    height: 14px;
+
+    border-radius: 50%;
+
+    background: #d7e4e6;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.vv-dot.active {
+    width: 16px;
+    height: 16px;
+
+    background: #009eaa;
+
+    transform: scale(1.05);
+}
+
+
+/* ==========================================================
+   2. CTA CARD
+   ========================================================== */
+
+.vv-cta-section {
+    padding: 25px 0 70px;
+}
+
+.vv-cta-card {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, 380px)
+        1fr;
+
+    align-items: center;
+
+    gap: 45px;
+
+    padding: 15px;
+
+    border: 3px solid #3d3d3d;
+
+    border-radius: 30px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+
+/* CTA image */
+
+.vv-cta-image {
+    overflow: hidden;
+
+    height: 320px;
+
+    border-radius: 25px;
+}
+
+.vv-cta-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* CTA content */
+
+.vv-cta-content {
+    padding: 25px 35px 25px 0;
+}
+
+.vv-small-heading {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: #009eaa;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.vv-cta-content h1 {
+
+    margin: 0 0 18px;
+
+    max-width: 650px;
+
+    color: #009eaa;
+
+    font-size: clamp(34px, 4vw, 58px);
+
+    font-weight: 800;
+
+    line-height: 1.05;
+}
+
+.vv-cta-content p {
+
+    max-width: 620px;
+
+    margin-bottom: 25px;
+
+    color: #555;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   BUTTON
+   ========================================================== */
+
+.vv-primary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 12px 25px;
+
+    border-radius: 25px;
+
+    background: #333333;
+
+    color: #ffffff !important;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.vv-primary-button:hover {
+
+    background: #009eaa;
+
+    color: #ffffff !important;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 158, 170, 0.25);
+}
+
+.vv-primary-button:active {
+
+    transform: translateY(0) scale(0.97);
+}
+
+
+/* ==========================================================
+   3. OUR SERVICES
+   ========================================================== */
+
+.vv-services-section {
+
+    padding: 30px 0 85px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f7fbfc 100%
+        );
+}
+
+
+/* Section heading */
+
+.vv-section-heading {
+
+    max-width: 700px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+}
+
+.vv-section-heading span {
+
+    color: #009eaa;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.vv-section-heading h2 {
+
+    margin: 8px 0 12px;
+
+    color: #111111;
+
+    font-size: clamp(34px, 4vw, 48px);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+}
+
+.vv-section-heading p {
+
+    margin: 0 auto;
+
+    max-width: 620px;
+
+    color: #666666;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   SERVICE GRID
+   ========================================================== */
+
+.vv-services-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* Service card */
+
+.vv-service-card {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 280px;
+
+    padding: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #e4eeee;
+
+    border-radius: 24px;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Hover card */
+
+.vv-service-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #009eaa;
+
+    box-shadow:
+        0 18px 40px rgba(0, 158, 170, 0.13);
+}
+
+
+/* Icon */
+
+.vv-service-icon {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 62px;
+    height: 62px;
+
+    margin-bottom: 22px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #009eaa,
+            #0099ea
+        );
+
+    box-shadow:
+        0 8px 18px rgba(0, 158, 170, 0.20);
+
+    transition:
+        transform 0.3s ease;
+}
+
+.vv-service-card:hover
+.vv-service-icon {
+
+    transform:
+        rotate(-4deg)
+        scale(1.05);
+}
+
+
+/* SVG icon */
+
+.vv-service-icon svg {
+
+    width: 30px;
+    height: 30px;
+
+    fill: none;
+
+    stroke: #ffffff;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* Service title */
+
+.vv-service-card h3 {
+
+    margin: 0 0 10px;
+
+    color: #151515;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+}
+
+
+/* Description */
+
+.vv-service-card p {
+
+    margin: 0 0 20px;
+
+    color: #666666;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+/* Service link */
+
+.vv-service-link {
+
+    margin-top: auto;
+
+    color: #009eaa;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition:
+        letter-spacing 0.25s ease;
+}
+
+.vv-service-card:hover
+.vv-service-link {
+
+    letter-spacing: 0.3px;
+}
+
+
+/* ==========================================================
+   4. VIDEO SECTION
+   ========================================================== */
+
+.vv-video-section {
+
+    padding: 20px 0 90px;
+
+    background: #ffffff;
+}
+
+
+.vv-video-card {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.25fr)
+        minmax(320px, 0.75fr);
+
+    align-items: center;
+
+    gap: 50px;
+
+    padding: 35px;
+
+    border: 2px solid #009eaa;
+
+    border-radius: 30px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.07);
+}
+
+
+/* YouTube */
+
+.vv-video-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #111111;
+}
+
+.vv-video-wrapper iframe {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+
+/* Video text */
+
+.vv-video-content {
+
+    padding-right: 15px;
+}
+
+.vv-video-content h2 {
+
+    margin: 5px 0 15px;
+
+    color: #111111;
+
+    font-size: clamp(28px, 3vw, 42px);
+
+    font-weight: 800;
+
+    line-height: 1.12;
+}
+
+.vv-video-content p {
+
+    margin-bottom: 25px;
+
+    color: #666666;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   TABLETS
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    .vv-services-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .vv-cta-card {
+
+        grid-template-columns:
+            300px 1fr;
+
+        gap: 25px;
+    }
+
+    .vv-cta-content {
+
+        padding-right: 20px;
+    }
+
+    .vv-video-card {
+
+        gap: 30px;
+
+        padding: 25px;
+    }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    .vv-container {
+
+        width:
+            calc(100% - 28px);
+    }
+
+
+    /* Banner */
+
+    .vv-banner-section {
+
+        padding-top: 20px;
+    }
+
+    .vv-banner {
+
+        border-radius: 20px;
+
+        border-width: 1.5px;
+    }
+
+
+    .vv-banner-dots {
+
+        padding: 14px 0;
+    }
+
+
+    .vv-dot {
+
+        width: 10px;
+        height: 10px;
+    }
+
+    .vv-dot.active {
+
+        width: 12px;
+        height: 12px;
+    }
+
+
+    /* CTA */
+
+    .vv-cta-section {
+
+        padding-bottom: 55px;
+    }
+
+    .vv-cta-card {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        padding: 10px;
+
+        border-radius: 22px;
+    }
+
+    .vv-cta-image {
+
+        height: 250px;
+
+        border-radius: 18px;
+    }
+
+    .vv-cta-content {
+
+        padding: 10px 15px 20px;
+    }
+
+    .vv-cta-content h1 {
+
+        font-size: 34px;
+    }
+
+    .vv-cta-content p {
+
+        font-size: 15px;
+    }
+
+
+    /* Services */
+
+    .vv-services-section {
+
+        padding-bottom: 60px;
+    }
+
+    .vv-section-heading {
+
+        margin-bottom: 30px;
+    }
+
+    .vv-section-heading h2 {
+
+        font-size: 34px;
+    }
+
+    .vv-services-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .vv-service-card {
+
+        min-height: auto;
+
+        padding: 25px;
+
+        border-radius: 20px;
+    }
+
+
+    /* Video */
+
+    .vv-video-section {
+
+        padding-bottom: 60px;
+    }
+
+    .vv-video-card {
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding: 15px;
+
+        border-radius: 22px;
+    }
+
+    .vv-video-content {
+
+        padding: 5px 10px 15px;
+    }
+
+    .vv-video-content h2 {
+
+        font-size: 30px;
+    }
+}
+
+
+/* ==========================================================
+   SMALL PHONES
+   ========================================================== */
+
+@media (max-width: 400px) {
+
+    .vv-container {
+
+        width:
+            calc(100% - 20px);
+    }
+
+    .vv-cta-content h1 {
+
+        font-size: 30px;
+    }
+
+    .vv-service-card {
+
+        padding: 22px;
+    }
+
+    .vv-service-icon {
+
+        width: 56px;
+        height: 56px;
+    }
+
+    .vv-video-content h2 {
+
+        font-size: 27px;
+    }
+}
+
+/* ==========================================================
+   VICTORIOUS VISUALS — MODERN HERO SECTION
+   ========================================================== */
+
+.vv-hero {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 500px;
+
+    background: #ffffff;
+
+    padding: 55px 0 40px;
+}
+
+
+/* ==========================================================
+   HERO CONTAINER
+   ========================================================== */
+
+.vv-hero-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1180px, calc(100% - 40px));
+
+    min-height: 430px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        0.95fr;
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+/* ==========================================================
+   HERO TEXT
+   ========================================================== */
+
+.vv-hero-content {
+
+    padding: 25px 0;
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+.vv-hero-label {
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: #009eaa;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+.vv-hero-content h1 {
+
+    margin: 0 0 18px;
+
+    color: #111111;
+
+    font-size: clamp(40px, 4.5vw, 62px);
+
+    font-weight: 800;
+
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+
+.vv-hero-content h1 span {
+
+    color: #009eaa;
+
+    display: inline-block;
+}
+
+
+.vv-hero-content p {
+
+    max-width: 540px;
+
+    margin: 0 0 25px;
+
+    color: #5f5f5f;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   HERO BUTTONS
+   ========================================================== */
+
+.vv-hero-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+
+.vv-hero-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 46px;
+
+    padding: 9px 10px 9px 20px;
+
+    border-radius: 25px;
+
+    background: #009eaa;
+
+    color: #ffffff !important;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 20px rgba(0, 158, 170, 0.20);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.vv-hero-button:hover {
+
+    background: #007f89;
+
+    color: #ffffff !important;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 158, 170, 0.28);
+}
+
+
+.vv-button-arrow {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #009eaa;
+
+    font-size: 18px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.vv-hero-button:hover
+.vv-button-arrow {
+
+    transform: rotate(45deg);
+}
+
+
+/* ==========================================================
+   PHONE CONTACT
+   ========================================================== */
+
+.vv-hero-contact {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #222222 !important;
+
+    text-decoration: none;
+}
+
+
+.vv-phone-icon {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #009eaa;
+
+    color: #ffffff;
+
+    font-size: 18px;
+}
+
+
+.vv-hero-contact small {
+
+    display: block;
+
+    color: #777777;
+
+    font-size: 12px;
+
+    margin-bottom: 2px;
+}
+
+
+.vv-hero-contact strong {
+
+    display: block;
+
+    color: #222222;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================================
+   HERO IMAGE
+   ========================================================== */
+
+.vv-hero-image {
+
+    position: relative;
+
+    align-self: stretch;
+
+    min-height: 420px;
+
+    overflow: hidden;
+
+    border-radius:
+        180px 0 0 180px;
+
+    background: #edf7f8;
+
+}
+
+
+.vv-hero-image::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.85),
+            rgba(255,255,255,0)
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+.vv-hero-image img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ==========================================================
+   DECORATIVE DOTS
+   ========================================================== */
+
+.vv-hero-shape {
+
+    position: absolute;
+
+    z-index: 1;
+
+    display: block;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.vv-shape-green {
+
+    width: 14px;
+    height: 14px;
+
+    left: 7%;
+
+    top: 95px;
+
+    background: #5ddc9b;
+
+    transform: rotate(45deg);
+
+    border-radius: 2px;
+}
+
+
+.vv-shape-yellow {
+
+    width: 11px;
+    height: 11px;
+
+    left: 42%;
+
+    top: 120px;
+
+    background: #f4c45d;
+}
+
+
+.vv-shape-blue {
+
+    width: 18px;
+    height: 18px;
+
+    left: 8%;
+
+    bottom: 45px;
+
+    background: #3d8df5;
+}
+
+
+.vv-shape-pink {
+
+    width: 18px;
+    height: 18px;
+
+    left: 52%;
+
+    bottom: 25px;
+
+    background: #ff6385;
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    .vv-hero {
+
+        padding-top: 35px;
+    }
+
+
+    .vv-hero-container {
+
+        grid-template-columns: 1fr 0.9fr;
+
+        gap: 20px;
+    }
+
+
+    .vv-hero-content h1 {
+
+        font-size: 44px;
+    }
+
+
+    .vv-hero-image {
+
+        min-height: 360px;
+    }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    .vv-hero {
+
+        padding: 30px 0 25px;
+    }
+
+
+    .vv-hero-container {
+
+        width: calc(100% - 28px);
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+    .vv-hero-content {
+
+        padding: 10px 0 0;
+    }
+
+
+    .vv-hero-content h1 {
+
+        font-size: 38px;
+
+        letter-spacing: -0.8px;
+    }
+
+
+    .vv-hero-content p {
+
+        font-size: 15px;
+    }
+
+
+    .vv-hero-actions {
+
+        gap: 15px;
+    }
+
+
+    .vv-hero-image {
+
+        min-height: 280px;
+
+        border-radius: 25px;
+
+        order: 2;
+    }
+
+
+    .vv-shape-yellow {
+
+        left: auto;
+
+        right: 15%;
+
+        top: 100px;
+    }
+
+
+    .vv-shape-pink {
+
+        left: auto;
+
+        right: 12%;
+
+        bottom: 20px;
+    }
+}
+
+
+/* ==========================================================
+   SMALL PHONES
+   ========================================================== */
+
+@media (max-width: 400px) {
+
+    .vv-hero-container {
+
+        width: calc(100% - 20px);
+    }
+
+
+    .vv-hero-content h1 {
+
+        font-size: 33px;
+    }
+
+
+    .vv-hero-actions {
+
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+
+    .vv-hero-button {
+
+        width: fit-content;
+    }
+
+
+    .vv-hero-contact {
+
+        width: fit-content;
+    }
+}
+
+/* ==========================================================
+   VICTORIOUS VISUALS — BANNER SLIDER
+   ========================================================== */
+
+.vv-slider {
+
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+
+    border: 2px solid #009eaa;
+
+    border-radius: 30px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==========================================================
+   SLIDES
+   ========================================================== */
+
+.vv-slide {
+
+    display: none;
+
+    width: 100%;
+
+    animation:
+        vvSlideFade 0.6s ease;
+}
+
+
+.vv-slide.active {
+
+    display: block;
+}
+
+
+.vv-slide img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    object-fit: cover;
+}
+
+
+@keyframes vvSlideFade {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(1.015);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+/* ==========================================================
+   SLIDER ARROWS
+   ========================================================== */
+
+.vv-slider-arrow {
+
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 38px;
+
+    height: 38px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #009eaa;
+
+    color: #ffffff;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.vv-slider-arrow:hover {
+
+    background: #007f89;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+
+.vv-slider-prev {
+
+    left: 12px;
+}
+
+
+.vv-slider-next {
+
+    right: 12px;
+}
+
+
+/* ==========================================================
+   DOTS
+   ========================================================== */
+
+.vv-banner-dots {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 18px 0 20px;
+}
+
+
+.vv-dot {
+
+    width: 13px;
+
+    height: 13px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #cbdfe1;
+
+    cursor: pointer;
+
+    transition:
+        width 0.25s ease,
+        height 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Active dot */
+
+.vv-dot.active {
+
+    width: 16px;
+
+    height: 16px;
+
+    background: #009eaa;
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 3px 10px rgba(0, 158, 170, 0.25);
+}
+
+
+/* Hover */
+
+.vv-dot:hover {
+
+    background: #007f89;
+
+    transform: scale(1.15);
+}
+
+
+/* ==========================================================
+   MOBILE SLIDER
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    .vv-slider {
+
+        border-radius: 20px;
+
+        border-width: 1.5px;
+    }
+
+
+    .vv-slider-arrow {
+
+        width: 32px;
+
+        height: 32px;
+
+        font-size: 25px;
+    }
+
+
+    .vv-slider-prev {
+
+        left: 8px;
+    }
+
+
+    .vv-slider-next {
+
+        right: 8px;
+    }
+
+
+    .vv-banner-dots {
+
+        gap: 10px;
+
+        padding: 13px 0 15px;
+    }
+
+
+    .vv-dot {
+
+        width: 10px;
+
+        height: 10px;
+    }
+
+
+    .vv-dot.active {
+
+        width: 13px;
+
+        height: 13px;
+    }
+}
