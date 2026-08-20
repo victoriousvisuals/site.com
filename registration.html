@@ -7,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Victorious Visuals - Client Registration</title>
+    <title>Victorious Visuals | Client Registration</title>
 
     
 
@@ -1131,6 +1131,353 @@ main,
     }
 }
 
+
+/* ============================================================
+   VICTORIOUS VISUALS — MODERN CENTERED REGISTRATION
+   Matches the modern Contact Us card style
+   ============================================================ */
+
+.registration-page {
+    background:
+        radial-gradient(circle at 8% 18%, rgba(0, 158, 170, 0.06), transparent 28%),
+        radial-gradient(circle at 92% 82%, rgba(0, 158, 170, 0.05), transparent 30%),
+        #f8fafb;
+}
+
+/* Remove the old split-screen presentation */
+.registration-page .registration-layout {
+    display: block !important;
+    min-height: auto !important;
+    width: 100%;
+}
+
+.registration-page .left-side {
+    display: none !important;
+}
+
+.registration-page .right-side {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 70px 20px 90px !important;
+    background: transparent !important;
+    animation: none !important;
+}
+
+/* Keep both stages on exactly the same centered axis */
+#clientDiscovery,
+#registrationForm {
+    width: min(100%, 760px) !important;
+    max-width: 760px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+}
+
+/* Discovery card */
+#clientDiscovery {
+    padding: 42px !important;
+    background: #ffffff;
+    border: 1px solid rgba(0, 158, 170, 0.10);
+    border-radius: 24px;
+    box-shadow: 0 20px 55px rgba(16, 35, 45, 0.09);
+}
+
+/* Registration card */
+#registrationForm {
+    position: relative;
+    padding: 42px !important;
+    background: #ffffff;
+    border: 1px solid rgba(0, 158, 170, 0.10);
+    border-radius: 24px;
+    box-shadow: 0 20px 55px rgba(16, 35, 45, 0.09);
+    overflow: hidden;
+    animation: registrationCardIn .65s ease both;
+}
+
+#registrationForm::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #009eaa;
+}
+
+/* Heading inside the form */
+.registration-form-heading {
+    margin-bottom: 30px;
+}
+
+.registration-form-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 9px;
+    color: #009eaa;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+}
+
+.registration-form-heading h2 {
+    margin: 0 0 9px;
+    color: #17232b;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    letter-spacing: -.6px;
+}
+
+.registration-form-heading h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin-top: 12px;
+    border-radius: 10px;
+    background: #009eaa;
+}
+
+.registration-form-heading p {
+    margin: 15px 0 0;
+    color: #718087;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+/* Form fields */
+.registration-page #registrationForm > input:not([type="hidden"]) {
+    display: block;
+    width: 100%;
+    min-height: 52px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    padding: 15px 17px;
+    border: 1px solid #dfe7ea;
+    border-radius: 12px;
+    background: #f9fbfc;
+    color: #17232b;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition:
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+}
+
+.registration-page #registrationForm > input:not([type="hidden"])::placeholder {
+    color: #829098;
+}
+
+.registration-page #registrationForm > input:not([type="hidden"]):focus {
+    border-color: #009eaa;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(0, 158, 170, .10);
+    transform: translateY(-1px);
+}
+
+.registration-page #registrationForm > input.input-error {
+    border-color: #dc3545 !important;
+    background: #fff8f8 !important;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, .08) !important;
+}
+
+/* Phone field */
+.registration-page .phone-field {
+    margin-bottom: 16px;
+}
+
+.registration-page .phone-field label {
+    margin-bottom: 8px;
+    color: #526169;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.registration-page .phone-field input {
+    height: 52px;
+    border: 1px solid #dfe7ea;
+    border-radius: 12px;
+    background: #f9fbfc;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.registration-page .phone-field input:focus {
+    border-color: #009eaa;
+    box-shadow: 0 0 0 4px rgba(0, 158, 170, .10);
+}
+
+/* Optional note */
+.registration-page .optional-label {
+    margin-top: -8px;
+    margin-bottom: 16px;
+    color: #87939a;
+}
+
+/* Submit button */
+.registration-page .submit-button {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 5px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 12px;
+    background: #009eaa;
+    color: #ffffff;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 22px rgba(0, 158, 170, .20);
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.registration-page .submit-button:hover {
+    background: #007f89;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 158, 170, .26);
+}
+
+.registration-page .submit-button:active {
+    transform: translateY(0);
+}
+
+.registration-page .submit-button:disabled {
+    background: #8b999e;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Already registered link */
+.registration-page #registrationForm a {
+    color: #009eaa;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.registration-page #registrationForm a:hover {
+    color: #007f89;
+    text-decoration: underline;
+}
+
+/* Error message */
+.registration-page #formMessage {
+    border-radius: 12px;
+}
+
+/* Keep the credentials panel consistent with the new card */
+.registration-page #credentialsPanel {
+    width: min(100%, 760px);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+
+/* Discovery heading alignment */
+.registration-page .discovery-intro h2 {
+    color: #17232b;
+}
+
+.registration-page .discovery-eyebrow,
+.registration-page .discovery-option i:first-child,
+.registration-page .discovery-note i {
+    color: #009eaa;
+}
+
+.registration-page .discovery-progress-bar {
+    background: #009eaa;
+}
+
+.registration-page .discovery-option:hover {
+    border-color: #009eaa;
+    box-shadow: 0 7px 20px rgba(0, 158, 170, .08);
+}
+
+.registration-page .discovery-option.selected {
+    border-color: #009eaa;
+    background: #f0fcfd;
+    box-shadow: 0 0 0 3px rgba(0, 158, 170, .09);
+}
+
+.registration-page .discovery-option .option-check {
+    background: #009eaa;
+}
+
+.registration-page .discovery-next {
+    background: #009eaa;
+}
+
+.registration-page .discovery-next:hover {
+    background: #007f89;
+}
+
+@keyframes registrationCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .registration-page .right-side {
+        padding: 50px 16px 65px !important;
+    }
+
+    #clientDiscovery,
+    #registrationForm {
+        padding: 32px 24px !important;
+        border-radius: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .registration-page .right-side {
+        padding: 38px 12px 50px !important;
+    }
+
+    #clientDiscovery,
+    #registrationForm {
+        padding: 28px 18px !important;
+        border-radius: 17px;
+    }
+
+    .registration-form-heading {
+        margin-bottom: 24px;
+    }
+
+    .registration-form-heading h2 {
+        font-size: 28px;
+    }
+
+    .registration-page #registrationForm > input:not([type="hidden"]) {
+        min-height: 50px;
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    .registration-page .phone-field input {
+        height: 50px;
+    }
+
+    .registration-page .submit-button {
+        min-height: 50px;
+    }
+}
+
 </style>
 
 </head>
@@ -1566,6 +1913,18 @@ main,
                 id="registrationForm"
                 novalidate
             >
+                <div class="registration-form-heading">
+                    <div class="registration-form-eyebrow">
+                        <i class="bi bi-person-plus"></i>
+                        Client Registration
+                    </div>
+                    <h2>Tell us about yourself</h2>
+                    <p>
+                        Please provide your details below so we can create your
+                        Victorious Visuals client account.
+                    </p>
+                </div>
+
                 <!-- CLIENT DISCOVERY ANSWERS -->
                 <input type="hidden" id="discovery_referral_source" name="discovery_referral_source">
                 <input type="hidden" id="discovery_country" name="discovery_country">
