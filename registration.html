@@ -776,7 +776,362 @@
     border-radius: 10px 0 0 10px;
 }
 
-    </style>
+    
+/* ============================================================
+   VICTORIOUS VISUALS — CLIENT DISCOVERY ONBOARDING
+   ============================================================ */
+
+#clientDiscovery {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.discovery-progress-wrap {
+    margin-bottom: 28px;
+}
+
+.discovery-progress-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #777;
+    font-weight: 600;
+}
+
+.discovery-progress-track {
+    width: 100%;
+    height: 7px;
+    background: #e9eeee;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.discovery-progress-bar {
+    height: 100%;
+    width: 16.666%;
+    background: linear-gradient(90deg, #00a6a6, #00c6c6);
+    border-radius: inherit;
+    transition: width .45s ease;
+}
+
+.discovery-intro {
+    margin-bottom: 30px;
+}
+
+.discovery-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #00a6a6;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.discovery-intro h2 {
+    margin-bottom: 10px;
+}
+
+.discovery-intro p {
+    color: #666;
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+.discovery-step {
+    display: none;
+}
+
+.discovery-step.active {
+    display: block;
+    animation: discoveryStepIn .42s ease both;
+}
+
+.discovery-question {
+    margin-bottom: 20px;
+}
+
+.discovery-question h3 {
+    font-size: 25px;
+    line-height: 1.3;
+    margin: 0 0 8px;
+    color: #111;
+}
+
+.discovery-question p {
+    color: #777;
+    font-size: 14px;
+    margin: 0;
+}
+
+.discovery-options {
+    display: grid;
+    gap: 10px;
+}
+
+.discovery-option {
+    position: relative;
+    width: 100%;
+    min-height: 56px;
+    padding: 15px 48px 15px 17px;
+    border: 1px solid #dedede;
+    border-radius: 12px;
+    background: #fff;
+    color: #222;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform .18s ease, border-color .18s ease,
+                background .18s ease, box-shadow .18s ease;
+}
+
+.discovery-option:hover {
+    transform: translateY(-1px);
+    border-color: #00a6a6;
+    box-shadow: 0 7px 20px rgba(0,166,166,.08);
+}
+
+.discovery-option.selected {
+    border-color: #00a6a6;
+    background: #f0ffff;
+    box-shadow: 0 0 0 3px rgba(0,166,166,.09);
+}
+
+.discovery-option .option-check {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    width: 23px;
+    height: 23px;
+    transform: translateY(-50%) scale(.75);
+    opacity: 0;
+    border-radius: 50%;
+    background: #00a6a6;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s ease;
+}
+
+.discovery-option.selected .option-check {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.discovery-option i:first-child {
+    width: 22px;
+    margin-right: 9px;
+    color: #00a6a6;
+}
+
+.discovery-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.discovery-nav button {
+    min-height: 46px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.discovery-back {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.discovery-back:hover {
+    background: #e4e4e4;
+}
+
+.discovery-next {
+    margin-left: auto;
+    background: #00a6a6;
+    color: #fff;
+    min-width: 130px;
+}
+
+.discovery-next:hover {
+    background: #008b8b;
+    transform: translateY(-1px);
+}
+
+.discovery-next:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.discovery-note {
+    text-align: center;
+    margin-top: 18px;
+    color: #888;
+    font-size: 12px;
+}
+
+.discovery-note i {
+    color: #00a6a6;
+    margin-right: 4px;
+}
+
+#registrationForm.discovery-registration-hidden {
+    display: none;
+}
+
+.discovery-complete {
+    display: none;
+}
+
+.discovery-complete.show {
+    display: block;
+    animation: discoveryStepIn .45s ease both;
+}
+
+@keyframes discoveryStepIn {
+    from {
+        opacity: 0;
+        transform: translateX(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 600px) {
+    #clientDiscovery {
+        width: 100%;
+    }
+
+    .discovery-question h3 {
+        font-size: 22px;
+    }
+
+    .discovery-option {
+        min-height: 54px;
+        padding: 14px 44px 14px 14px;
+    }
+
+    .discovery-nav button {
+        flex: 1;
+    }
+}
+
+    
+/* ============================================================
+   MODERNIZED CENTERED REGISTRATION LAYOUT
+   Removes the decorative image/side panel and centers the form.
+   ============================================================ */
+
+/* Collapse the registration page into a single centered column */
+.registration-container,
+.registration-wrapper,
+.register-container,
+.form-container,
+.registration-layout {
+    grid-template-columns: 1fr !important;
+    display: grid;
+}
+
+/* Hide decorative/image panels used by the old two-column layout */
+.registration-image,
+.registration-image-container,
+.registration-visual,
+.registration-side-image,
+.register-image,
+.form-image,
+.hero-image,
+.registration-left,
+.registration-visual-panel,
+.register-visual {
+    display: none !important;
+}
+
+/* Keep the actual registration form centered */
+#registrationForm {
+    width: min(100%, 760px);
+    margin: 0 auto !important;
+}
+
+/* If the existing layout has a generic right/left column wrapper,
+   make the form column occupy the full available width. */
+.registration-form,
+.registration-form-container,
+.form-column,
+.register-form-column {
+    width: 100% !important;
+    max-width: 760px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Modern card treatment */
+#registrationForm {
+    background: #ffffff;
+    border: 1px solid #e7eeee;
+    border-radius: 24px;
+    padding: clamp(24px, 4vw, 42px);
+    box-shadow: 0 18px 55px rgba(0, 120, 120, 0.09);
+}
+
+/* Center the discovery stage on the same visual axis */
+#clientDiscovery {
+    width: min(100%, 760px);
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 42px);
+    background: #ffffff;
+    border: 1px solid #e7eeee;
+    border-radius: 24px;
+    box-shadow: 0 18px 55px rgba(0, 120, 120, 0.09);
+}
+
+/* Remove excessive outer spacing inherited from the old two-column design */
+#clientDiscovery,
+#registrationForm {
+    box-sizing: border-box;
+}
+
+/* Keep the main registration heading centered */
+#registrationForm h1,
+#registrationForm h2,
+#registrationForm .form-title,
+#registrationForm .registration-title {
+    text-align: center;
+}
+
+/* Better desktop page spacing */
+main,
+.registration-section,
+.register-section {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    #clientDiscovery,
+    #registrationForm {
+        width: 100%;
+        border-radius: 18px;
+        padding: 22px 18px;
+        box-shadow: 0 10px 35px rgba(0, 120, 120, 0.07);
+    }
+}
+
+</style>
 
 </head>
 
@@ -863,7 +1218,7 @@
      <header class="site-header-hero">
             
 
-                            <h1> Become Our Client
+                            <h1> Become Part of Us
                             </h1>
                             <p>
 
@@ -880,27 +1235,7 @@
 <div class="registration-layout">
 
 
-    <!-- =====================================================
-         LEFT SIDE
-    ====================================================== -->
 
-    <div class="left-side">
-
-        <div>
-
-            <h1>
-                Victorious Visuals
-            </h1>
-
-            <p>
-
-                Aiming at Professional Graphic Design Services
-
-            </p>
-
-        </div>
-
-    </div>
 
 
     <!-- =====================================================
@@ -916,14 +1251,312 @@
 
         <div id="registrationArea">
 
-            <h2>
-                Client Registration
-            </h2>
+          
 
-            <p>
-                Basic client information
-            </p>
 
+            <!-- =====================================================
+                 CLIENT DISCOVERY — ONE QUESTION AT A TIME
+            ====================================================== -->
+            <div id="clientDiscovery">
+
+                <div class="discovery-progress-wrap">
+                    <div class="discovery-progress-top">
+                        <span id="discoveryStepLabel">Getting to know you</span>
+                        <span id="discoveryStepCount">1 of 6</span>
+                    </div>
+                    <div class="discovery-progress-track" aria-hidden="true">
+                        <div class="discovery-progress-bar" id="discoveryProgressBar"></div>
+                    </div>
+                </div>
+
+                <div class="discovery-intro">
+                    <div class="discovery-eyebrow">
+                        <i class="bi bi-stars"></i>
+                        Quick client discovery
+                    </div>
+                    <h2>Let's get to know you</h2>
+                    <p>
+                        Before we collect your registration details, tell us a little
+                        about what brought you to Victorious Visuals. It only takes
+                        about 30 seconds.
+                    </p>
+                </div>
+
+                <!-- STEP 1 -->
+                <section class="discovery-step active" data-step="1">
+                    <div class="discovery-question">
+                        <h3>How did you first hear about Victorious Visuals?</h3>
+                        <p>Select the option that best describes how you found us.</p>
+                    </div>
+
+                    <div class="discovery-options">
+                        <button type="button" class="discovery-option" data-value="Google Search">
+                            <i class="bi bi-google"></i> Google Search
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Facebook">
+                            <i class="bi bi-facebook"></i> Facebook
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Instagram">
+                            <i class="bi bi-instagram"></i> Instagram
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="TikTok">
+                            <i class="bi bi-tiktok"></i> TikTok
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="WhatsApp">
+                            <i class="bi bi-whatsapp"></i> WhatsApp
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="YouTube">
+                            <i class="bi bi-youtube"></i> YouTube
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Client referral">
+                            <i class="bi bi-person-check"></i> A client referred me
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Friend or family">
+                            <i class="bi bi-people"></i> A friend or family member
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Victorious Visuals advertisement">
+                            <i class="bi bi-megaphone"></i> A Victorious Visuals advertisement
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Other">
+                            <i class="bi bi-three-dots"></i> Other
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- STEP 2 -->
+                <section class="discovery-step" data-step="2">
+                    <div class="discovery-question">
+                        <h3>Where are you currently located?</h3>
+                        <p>This helps us understand where our clients are coming from.</p>
+                    </div>
+
+                    <div class="discovery-options">
+                        <button type="button" class="discovery-option" data-value="Uganda">
+                            <i class="bi bi-geo-alt"></i> Uganda
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Kenya">
+                            <i class="bi bi-geo-alt"></i> Kenya
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Tanzania">
+                            <i class="bi bi-geo-alt"></i> Tanzania
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Rwanda">
+                            <i class="bi bi-geo-alt"></i> Rwanda
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="South Sudan">
+                            <i class="bi bi-geo-alt"></i> South Sudan
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Other African country">
+                            <i class="bi bi-globe2"></i> Other African country
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Outside Africa">
+                            <i class="bi bi-globe"></i> Outside Africa
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- STEP 3 -->
+                <section class="discovery-step" data-step="3">
+                    <div class="discovery-question">
+                        <h3>Which best describes you?</h3>
+                        <p>Choose the option that most closely matches your situation.</p>
+                    </div>
+
+                    <div class="discovery-options">
+                        <button type="button" class="discovery-option" data-value="Individual / Personal Client">
+                            <i class="bi bi-person"></i> Individual / Personal Client
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Startup / New Business">
+                            <i class="bi bi-rocket-takeoff"></i> Startup / New Business
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Small Business">
+                            <i class="bi bi-shop"></i> Small Business
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Medium Business">
+                            <i class="bi bi-building"></i> Medium Business
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Large Business">
+                            <i class="bi bi-buildings"></i> Large Business
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Organization / Institution">
+                            <i class="bi bi-bank"></i> Organization / Institution
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Freelancer / Creative Professional">
+                            <i class="bi bi-palette"></i> Freelancer / Creative Professional
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Other">
+                            <i class="bi bi-three-dots"></i> Other
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- STEP 4 -->
+                <section class="discovery-step" data-step="4">
+                    <div class="discovery-question">
+                        <h3>What are you interested in?</h3>
+                        <p>Select the service you are mainly looking for right now.</p>
+                    </div>
+
+                    <div class="discovery-options">
+                        <button type="button" class="discovery-option" data-value="Web Design">
+                            <i class="bi bi-window"></i> Web Design
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Graphics Design">
+                            <i class="bi bi-vector-pen"></i> Graphics Design
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Branding">
+                            <i class="bi bi-stars"></i> Branding
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Packaging & Label Design">
+                            <i class="bi bi-box-seam"></i> Packaging &amp; Label Design
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Video Advert">
+                            <i class="bi bi-camera-reels"></i> Video Advert
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Social Media Graphics">
+                            <i class="bi bi-share"></i> Social Media Graphics
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Printing / Marketing Materials">
+                            <i class="bi bi-printer"></i> Printing / Marketing Materials
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Multiple Services">
+                            <i class="bi bi-grid"></i> Multiple Services
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Not sure yet">
+                            <i class="bi bi-question-circle"></i> I'm not sure yet
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- STEP 5 -->
+                <section class="discovery-step" data-step="5">
+                    <div class="discovery-question">
+                        <h3>When are you planning to start your project?</h3>
+                        <p>A rough timeframe is enough — there is no commitment.</p>
+                    </div>
+
+                    <div class="discovery-options">
+                        <button type="button" class="discovery-option" data-value="As soon as possible">
+                            <i class="bi bi-lightning-charge"></i> As soon as possible
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Within 1–2 weeks">
+                            <i class="bi bi-calendar2-week"></i> Within 1–2 weeks
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Within a month">
+                            <i class="bi bi-calendar2"></i> Within a month
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Within 1–3 months">
+                            <i class="bi bi-calendar3"></i> Within 1–3 months
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Just exploring">
+                            <i class="bi bi-search"></i> I'm just exploring
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Not sure yet">
+                            <i class="bi bi-question-circle"></i> I'm not sure yet
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- STEP 6 -->
+                <section class="discovery-step" data-step="6">
+                    <div class="discovery-question">
+                        <h3>What would you like to do next?</h3>
+                        <p>Choose the option that best matches what you need right now.</p>
+                    </div>
+
+                    <div class="discovery-options">
+                        <button type="button" class="discovery-option" data-value="Start a project">
+                            <i class="bi bi-rocket"></i> Start a project
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Request a quotation">
+                            <i class="bi bi-receipt"></i> Request a quotation
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Learn more about services">
+                            <i class="bi bi-info-circle"></i> Learn more about your services
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Discuss my project first">
+                            <i class="bi bi-chat-dots"></i> Discuss my project first
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                        <button type="button" class="discovery-option" data-value="Just exploring">
+                            <i class="bi bi-search"></i> I'm just exploring
+                            <span class="option-check"><i class="bi bi-check-lg"></i></span>
+                        </button>
+                    </div>
+                </section>
+
+                <div class="discovery-nav">
+                    <button type="button" class="discovery-back" id="discoveryBack" disabled>
+                        <i class="bi bi-arrow-left"></i> Back
+                    </button>
+                    <button type="button" class="discovery-next" id="discoveryNext" disabled>
+                        Continue <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="discovery-note">
+                    <i class="bi bi-shield-check"></i>
+                    Your answers help us understand our clients and improve our services.
+                </div>
+            </div>
+
+            <div class="discovery-complete" id="discoveryComplete">
+                <div class="discovery-intro">
+                    <div class="discovery-eyebrow">
+                        <i class="bi bi-check-circle-fill"></i>
+                        Almost there
+                    </div>
+                    <h2>You're all set!</h2>
+                    <p>
+                        Thank you. We now have a better understanding of what you're
+                        looking for. Let's collect a few details so we can get in touch
+                        with you.
+                    </p>
+                </div>
+            </div>
 
             <!-- =============================================
                  REGISTRATION FORM
@@ -933,6 +1566,14 @@
                 id="registrationForm"
                 novalidate
             >
+                <!-- CLIENT DISCOVERY ANSWERS -->
+                <input type="hidden" id="discovery_referral_source" name="discovery_referral_source">
+                <input type="hidden" id="discovery_country" name="discovery_country">
+                <input type="hidden" id="discovery_client_type" name="discovery_client_type">
+                <input type="hidden" id="discovery_service_interest" name="discovery_service_interest">
+                <input type="hidden" id="discovery_project_timeline" name="discovery_project_timeline">
+                <input type="hidden" id="discovery_next_step" name="discovery_next_step">
+
 
 
                 <!-- FULL NAME -->
@@ -1491,6 +2132,209 @@ const iti = window.intlTelInput(phoneInput, {
 <script>
 
 
+
+/* ============================================================
+   CLIENT DISCOVERY — ONE QUESTION AT A TIME
+============================================================ */
+
+(function () {
+    const discovery = document.getElementById("clientDiscovery");
+    if (!discovery) return;
+
+    const steps = Array.from(
+        discovery.querySelectorAll(".discovery-step")
+    );
+
+    const progressBar =
+        document.getElementById("discoveryProgressBar");
+
+    const stepCount =
+        document.getElementById("discoveryStepCount");
+
+    const stepLabel =
+        document.getElementById("discoveryStepLabel");
+
+    const backButton =
+        document.getElementById("discoveryBack");
+
+    const nextButton =
+        document.getElementById("discoveryNext");
+
+    const complete =
+        document.getElementById("discoveryComplete");
+
+    const registrationForm =
+        document.getElementById("registrationForm");
+
+    const answers = {
+        referral_source: "",
+        country: "",
+        client_type: "",
+        service_interest: "",
+        project_timeline: "",
+        next_step: ""
+    };
+
+    const hiddenMap = {
+        referral_source: "discovery_referral_source",
+        country: "discovery_country",
+        client_type: "discovery_client_type",
+        service_interest: "discovery_service_interest",
+        project_timeline: "discovery_project_timeline",
+        next_step: "discovery_next_step"
+    };
+
+    let currentStep = 1;
+
+    const labels = [
+        "How you found us",
+        "Your location",
+        "About you",
+        "Your service",
+        "Your timeframe",
+        "What you need next"
+    ];
+
+    function currentKey() {
+        return [
+            "referral_source",
+            "country",
+            "client_type",
+            "service_interest",
+            "project_timeline",
+            "next_step"
+        ][currentStep - 1];
+    }
+
+    function updateUI() {
+        steps.forEach(function (step) {
+            step.classList.toggle(
+                "active",
+                Number(step.dataset.step) === currentStep
+            );
+        });
+
+        const percentage =
+            (currentStep / steps.length) * 100;
+
+        progressBar.style.width =
+            percentage + "%";
+
+        stepCount.textContent =
+            currentStep + " of " + steps.length;
+
+        stepLabel.textContent =
+            labels[currentStep - 1];
+
+        backButton.disabled =
+            currentStep === 1;
+
+        nextButton.disabled =
+            !answers[currentKey()];
+
+        nextButton.innerHTML =
+            currentStep === steps.length
+                ? 'Finish <i class="bi bi-check-lg"></i>'
+                : 'Continue <i class="bi bi-arrow-right"></i>';
+
+        // Restore selected state if the user goes back.
+        const step = steps[currentStep - 1];
+        step.querySelectorAll(".discovery-option").forEach(function (button) {
+            button.classList.toggle(
+                "selected",
+                button.dataset.value === answers[currentKey()]
+            );
+        });
+    }
+
+    steps.forEach(function (step) {
+        step.querySelectorAll(".discovery-option").forEach(function (button) {
+            button.addEventListener("click", function () {
+                const key = [
+                    "referral_source",
+                    "country",
+                    "client_type",
+                    "service_interest",
+                    "project_timeline",
+                    "next_step"
+                ][Number(step.dataset.step) - 1];
+
+                answers[key] = button.dataset.value;
+
+                const hiddenInput =
+                    document.getElementById(hiddenMap[key]);
+
+                if (hiddenInput) {
+                    hiddenInput.value = button.dataset.value;
+                }
+
+                step.querySelectorAll(".discovery-option")
+                    .forEach(function (option) {
+                        option.classList.remove("selected");
+                    });
+
+                button.classList.add("selected");
+                nextButton.disabled = false;
+
+                // Selecting an answer does not automatically advance.
+                // The client remains in control using Continue.
+            });
+        });
+    });
+
+    nextButton.addEventListener("click", function () {
+        if (!answers[currentKey()]) return;
+
+        if (currentStep < steps.length) {
+            currentStep++;
+            updateUI();
+            window.scrollTo({
+                top: discovery.offsetTop - 30,
+                behavior: "smooth"
+            });
+            return;
+        }
+
+        // Discovery finished: show a short confirmation,
+        // then reveal the existing registration form.
+        discovery.style.display = "none";
+        complete.classList.add("show");
+
+        setTimeout(function () {
+            complete.classList.remove("show");
+            complete.style.display = "none";
+
+            registrationForm.classList.remove(
+                "discovery-registration-hidden"
+            );
+
+            registrationForm.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }, 700);
+    });
+
+    backButton.addEventListener("click", function () {
+        if (currentStep <= 1) return;
+
+        currentStep--;
+        updateUI();
+
+        window.scrollTo({
+            top: discovery.offsetTop - 30,
+            behavior: "smooth"
+        });
+    });
+
+    // Hide the existing registration form until discovery is complete.
+    registrationForm.classList.add(
+        "discovery-registration-hidden"
+    );
+
+    updateUI();
+})();
+
 /* ============================================================
    CONFIGURATION
 ============================================================ */
@@ -1962,6 +2806,31 @@ form.addEventListener(
 
 
         /* ----------------------------------------------------
+           VERIFY CLIENT DISCOVERY ANSWERS
+        ---------------------------------------------------- */
+
+        const discoveryRequired = [
+            "discovery_referral_source",
+            "discovery_country",
+            "discovery_client_type",
+            "discovery_service_interest",
+            "discovery_project_timeline",
+            "discovery_next_step"
+        ];
+
+        const discoveryComplete =
+            discoveryRequired.every(function (id) {
+                return document.getElementById(id).value.trim();
+            });
+
+        if (!discoveryComplete) {
+            showError(
+                "Please complete the short client discovery questions before submitting."
+            );
+            return;
+        }
+
+        /* ----------------------------------------------------
            DISABLE SUBMIT
         ---------------------------------------------------- */
 
@@ -2000,7 +2869,26 @@ form.addEventListener(
                 personalContact,
 
             personal_physical_location:
-                physicalLocation
+                physicalLocation,
+
+            // Client discovery answers
+            discovery_referral_source:
+                document.getElementById("discovery_referral_source").value,
+
+            discovery_country:
+                document.getElementById("discovery_country").value,
+
+            discovery_client_type:
+                document.getElementById("discovery_client_type").value,
+
+            discovery_service_interest:
+                document.getElementById("discovery_service_interest").value,
+
+            discovery_project_timeline:
+                document.getElementById("discovery_project_timeline").value,
+
+            discovery_next_step:
+                document.getElementById("discovery_next_step").value
         };
 
 
