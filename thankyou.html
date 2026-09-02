@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
+
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TD94F1V3CR"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -17,109 +18,714 @@
     <meta name="google-adsense-account" content="ca-pub-1010510184386071">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1010510184386071"
      crossorigin="anonymous"></script>
-  
-<title>Thank You</title>
+    <meta charset="UTF-8">
 
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, sans-serif;
-}
+    <title>Registration Successful | Victorious Visuals</title>
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:
-        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72");
-    background-size:cover;
-    background-position:center;
-}
+    <meta name="description"
+          content="Your Victorious Visuals client registration has been successfully completed.">
 
-.container{
-    background: rgba(255,255,255,0.95);
-    padding:50px 40px;
-    border-radius:20px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.2);
-    text-align:center;
-    width:90%;
-    max-width:500px;
-    animation: fadeUp 0.8s ease;
-}
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
 
-.icon{
-    font-size:70px;
-    color:#00a6a6;
-    margin-bottom:20px;
-}
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-h1{
-    font-size:36px;
-    margin-bottom:15px;
-    color:#111;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
-p{
-    color:#555;
-    line-height:1.6;
-    margin-bottom:30px;
-    font-size:16px;
-}
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-.button{
-    display:inline-block;
-    text-decoration:none;
-    background:black;
-    color:white;
-    padding:14px 28px;
-    border-radius:30px;
-    font-size:16px;
-    transition:0.3s ease;
-}
 
-.button:hover{
-    background:#00a6a6;
-    transform:scale(1.05);
-}
+    <style>
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-</style>
+        /* =====================================================
+           VICTORIOUS VISUALS
+           CLIENT REGISTRATION SUCCESS PAGE
+           ===================================================== */
+
+        :root {
+            --vv-teal: #009eaa;
+            --vv-teal-dark: #008691;
+            --vv-light: #e9f8f9;
+            --vv-text: #111111;
+            --vv-muted: #666666;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #ffffff;
+            color: var(--vv-text);
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           MAIN PAGE
+           ===================================================== */
+
+        .registration-success-page {
+
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+
+            padding: 40px 20px;
+
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           BACKGROUND CIRCLES
+           ===================================================== */
+
+        .registration-success-page::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 520px;
+            height: 520px;
+
+            border-radius: 50%;
+
+            background: rgba(0, 158, 170, 0.055);
+
+            top: -280px;
+            right: -190px;
+
+            animation: floatingCircle 8s ease-in-out infinite;
+        }
+
+
+        .registration-success-page::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 430px;
+            height: 430px;
+
+            border-radius: 50%;
+
+            background: rgba(0, 158, 170, 0.045);
+
+            bottom: -240px;
+            left: -180px;
+
+            animation: floatingCircle 10s ease-in-out infinite reverse;
+        }
+
+
+        @keyframes floatingCircle {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(25px);
+            }
+        }
+
+
+        /* =====================================================
+           FLOATING DOTS
+           ===================================================== */
+
+        .registration-particle {
+
+            position: absolute;
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--vv-teal);
+
+            opacity: 0.25;
+
+            animation: particleMove 5s ease-in-out infinite;
+        }
+
+
+        .registration-particle:nth-child(1) {
+            top: 17%;
+            left: 13%;
+            animation-delay: 0s;
+        }
+
+        .registration-particle:nth-child(2) {
+            top: 27%;
+            right: 15%;
+            animation-delay: 1.2s;
+        }
+
+        .registration-particle:nth-child(3) {
+            bottom: 20%;
+            left: 21%;
+            animation-delay: 2.2s;
+        }
+
+        .registration-particle:nth-child(4) {
+            bottom: 28%;
+            right: 12%;
+            animation-delay: 3.2s;
+        }
+
+        .registration-particle:nth-child(5) {
+            top: 13%;
+            left: 48%;
+            animation-delay: 1.7s;
+        }
+
+
+        @keyframes particleMove {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.2;
+            }
+
+            50% {
+                transform: translateY(-18px) scale(1.35);
+                opacity: 0.5;
+            }
+        }
+
+
+        /* =====================================================
+           SUCCESS CARD
+           ===================================================== */
+
+        .registration-success-card {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: 100%;
+            max-width: 680px;
+
+            padding: 55px 48px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            border: 1px solid rgba(0, 158, 170, 0.12);
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.08);
+
+            animation: cardAppear 0.8s ease forwards;
+        }
+
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(35px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           SUCCESS ICON
+           ===================================================== */
+
+        .registration-success-icon {
+
+            width: 105px;
+            height: 105px;
+
+            margin: 0 auto 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+
+            border-radius: 50%;
+
+            background: var(--vv-light);
+
+            color: var(--vv-teal);
+
+            font-size: 50px;
+
+            animation: successPop 0.75s ease 0.35s both;
+        }
+
+
+        .registration-success-icon::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: -8px;
+
+            border-radius: 50%;
+
+            border: 2px solid rgba(0, 158, 170, 0.15);
+
+            animation: successRing 2s ease-out infinite;
+        }
+
+
+        @keyframes successPop {
+
+            0% {
+                opacity: 0;
+                transform: scale(0.35);
+            }
+
+            70% {
+                transform: scale(1.08);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
+        @keyframes successRing {
+
+            0% {
+                transform: scale(0.9);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+
+        /* =====================================================
+           HEADING
+           ===================================================== */
+
+        .registration-success-card h1 {
+
+            margin-bottom: 15px;
+
+            font-size: clamp(34px, 6vw, 48px);
+
+            line-height: 1.1;
+
+            font-weight: 800;
+
+            letter-spacing: -1.5px;
+
+            animation: fadeUp 0.7s ease 0.45s both;
+        }
+
+
+        .registration-success-card h1 span {
+            color: var(--vv-teal);
+        }
+
+
+        /* =====================================================
+           MESSAGE
+           ===================================================== */
+
+        .registration-success-message {
+
+            max-width: 520px;
+
+            margin: 0 auto 24px;
+
+            color: var(--vv-muted);
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            animation: fadeUp 0.7s ease 0.55s both;
+        }
+
+
+        /* =====================================================
+           ACCOUNT NOTICE
+           ===================================================== */
+
+        .registration-account-notice {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 13px;
+
+            max-width: 520px;
+
+            margin: 0 auto 28px;
+
+            padding: 17px 20px;
+
+            text-align: left;
+
+            background: #f4fbfc;
+
+            border: 1px solid rgba(0, 158, 170, 0.10);
+
+            border-radius: 15px;
+
+            animation: fadeUp 0.7s ease 0.65s both;
+        }
+
+
+        .registration-account-notice i {
+
+            flex: 0 0 auto;
+
+            color: var(--vv-teal);
+
+            font-size: 21px;
+
+            margin-top: 2px;
+        }
+
+
+        .registration-account-notice p {
+
+            margin: 0;
+
+            color: #555;
+
+            font-size: 14px;
+
+            line-height: 1.55;
+        }
+
+
+        .registration-account-notice strong {
+            color: #222;
+        }
+
+
+        /* =====================================================
+           BUTTONS
+           ===================================================== */
+
+        .registration-actions {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            animation: fadeUp 0.7s ease 0.75s both;
+        }
+
+
+        .registration-home-button {
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            min-width: 190px;
+
+            padding: 14px 28px;
+
+            border-radius: 50px;
+
+            background: var(--vv-teal);
+
+            color: #ffffff !important;
+
+            text-decoration: none !important;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .registration-home-button:hover {
+
+            background: var(--vv-teal-dark);
+
+            color: #ffffff !important;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 25px rgba(0, 158, 170, 0.25);
+        }
+
+
+        /* =====================================================
+           FOOTER NOTE
+           ===================================================== */
+
+        .registration-footer {
+
+            margin-top: 35px;
+
+            padding-top: 21px;
+
+            border-top: 1px solid rgba(0, 158, 170, 0.12);
+
+            color: #888;
+
+            font-size: 13px;
+
+            animation: fadeUp 0.7s ease 0.85s both;
+        }
+
+
+        .registration-footer strong {
+            color: var(--vv-teal);
+        }
+
+
+        /* =====================================================
+           GENERAL FADE ANIMATION
+           ===================================================== */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .registration-success-page {
+                padding: 25px 15px;
+            }
+
+
+            .registration-success-card {
+
+                padding: 42px 23px;
+
+                border-radius: 23px;
+            }
+
+
+            .registration-success-icon {
+
+                width: 88px;
+                height: 88px;
+
+                margin-bottom: 24px;
+
+                font-size: 42px;
+            }
+
+
+            .registration-success-card h1 {
+
+                font-size: 35px;
+
+                letter-spacing: -1px;
+            }
+
+
+            .registration-success-message {
+
+                font-size: 16px;
+
+                line-height: 1.6;
+            }
+
+
+            .registration-account-notice {
+
+                padding: 15px 16px;
+            }
+
+
+            .registration-home-button {
+
+                width: 100%;
+            }
+
+
+            .registration-footer {
+
+                margin-top: 29px;
+            }
+        }
+
+    </style>
 </head>
+
+
 <body>
 
-<div class="container">
-    <div class="icon">
-        <i class="bi bi-check-circle-fill"></i>
-    </div>
 
-    <h1>Thank You!</h1>
+    <main class="registration-success-page">
 
-    <p>
-        Your information has been submitted successfully.<br>
-        Our team will review your request and get back to you shortly.
-    </p>
 
-    <!-- Change index.html to your homepage URL if hosted online -->
-    <a href="https://victoriousvisuals.github.io/site.com" class="button">
-        Back to Website
-    </a>
-</div>
+        <!-- Floating decorative particles -->
+
+        <span class="registration-particle"></span>
+        <span class="registration-particle"></span>
+        <span class="registration-particle"></span>
+        <span class="registration-particle"></span>
+        <span class="registration-particle"></span>
+
+
+        <!-- Registration Success Card -->
+
+        <section class="registration-success-card">
+
+
+            <!-- Animated Success Icon -->
+
+            <div class="registration-success-icon">
+
+                <i class="bi bi-person-check-fill"></i>
+
+            </div>
+
+
+            <!-- Heading -->
+
+            <h1>
+                Registration <span>Successful!</span>
+            </h1>
+
+
+            <!-- Main Message -->
+
+            <p class="registration-success-message">
+
+                Welcome to Victorious Visuals!
+
+                Your client registration has been successfully
+                completed. We’re excited to have you with us
+                and look forward to working with you.
+
+            </p>
+
+
+            <!-- Account Information Notice -->
+
+            <div class="registration-account-notice">
+
+                <i class="bi bi-shield-check-fill"></i>
+
+                <p>
+                    <strong>Keep your account details safe.</strong><br>
+
+                    Your Client ID and Access Code are important
+                    for verifying your account and submitting
+                    future project requests.
+                </p>
+
+            </div>
+
+
+            <!-- Action -->
+
+            <div class="registration-actions">
+
+                <a
+                    href="index.html"
+                    class="registration-home-button"
+                >
+
+                    <i class="bi bi-house-door-fill"></i>
+
+                    Back to Home
+
+                </a>
+
+            </div>
+
+
+            <!-- Footer -->
+
+            <div class="registration-footer">
+
+                <strong>Victorious Visuals</strong>
+
+                <span>
+                    • Professional Graphic Design Services
+                </span>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
 
 </body>
 </html>
