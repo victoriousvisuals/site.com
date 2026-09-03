@@ -3357,14 +3357,15 @@ button:focus:not(:focus-visible) {
 
     padding: 35px;
 
-    border: 2px solid #009eaa;
+    /* Clean, Google-inspired rectangular surface */
+    border: 1px solid rgba(0, 158, 170, 0.18);
 
-    border-radius: 30px;
+    border-radius: 0;
 
-    background: #ffffff;
+    background: rgba(0, 158, 170, 0.055);
 
     box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.07);
+        0 12px 36px rgba(21, 37, 42, 0.07);
 }
 
 
@@ -3380,9 +3381,9 @@ button:focus:not(:focus-visible) {
 
     overflow: hidden;
 
-    border-radius: 20px;
+    border-radius: 0px;
 
-    background: #111111;
+    
 }
 
 .vv-video-wrapper iframe {
@@ -5204,7 +5205,7 @@ button:focus:not(:focus-visible) {
 
     padding: 20px 0 80px;
 
-    background: #12c7dfb4;
+    background: #e2e2e291;
 }
 
 
@@ -5524,7 +5525,7 @@ button:focus:not(:focus-visible) {
 
         padding: 14px;
 
-        border-radius: 22px;
+        border-radius: 0px;
     }
 
 
