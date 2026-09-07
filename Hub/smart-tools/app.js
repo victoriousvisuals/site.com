@@ -38,7 +38,7 @@ const effectPresets = {
 const effectsState = { preset: 'vhs', intensity: 65, grain: 35, adjustmentsOpen: false };
 const templatePresets = Object.fromEntries(Array.from({ length: 10 }, (_, index) => {
   const id = `frame-${String(index + 1).padStart(2, '0')}`;
-  return [id, { id, label: `Template ${String(index + 1).padStart(2, '0')}`, src: `templates/${id}.png`, image: null }];
+  return [id, { id, label: `Template ${String(index + 1).padStart(2, '0')}`, src: `templates/${id}.webp`, image: null }];
 }));
 const templateState = { preset: 'frame-01', centerX: .5, centerY: .5, scale: .84, rotation: 0, dragging: false, dragMode: '', resizeHandle: '', startX: 0, startY: 0, startCenterX: .5, startCenterY: .5, startScale: .84, startRotation: 0 };
 const $ = (selector) => document.querySelector(selector);
@@ -647,7 +647,7 @@ function generateQr() {
 function updateSizeReadout() { if (!sourceFile || !$('#size-readout')) return; const estimate = sourceFile.size * (0.16 + compressorState.quality / 120); $('#size-readout').textContent = `Original ${formatBytes(sourceFile.size)}  ->  Estimated ${formatBytes(estimate)}`; }
 function resetTool() { clearToolSession(); renderControls(); }
 function downloadResult() {
-  if (currentTool === 'qr') { const canvas = $('#qr-output canvas'); if (canvas) saveCanvas(canvas, 'smarttools-qr.png'); return; }
+  if (currentTool === 'qr') { const canvas = $('#qr-output canvas'); if (canvas) saveCanvas(canvas, 'smarttools-qr.webp'); return; }
   const canvas = $('#image-canvas'); if (!canvas || !sourceImage) return;
   const quality = currentTool === 'compress' ? compressorState.quality / 100 : .92;
   const exportCanvas = document.createElement('canvas');
@@ -655,7 +655,7 @@ function downloadResult() {
   const exportContext = exportCanvas.getContext('2d');
   exportContext.drawImage(canvas, 0, 0);
   if (currentTool === 'templates') exportContext.drawImage($('#frame-canvas'), 0, 0);
-  const link = document.createElement('a'); link.download = `smarttools-${currentTool}.${currentTool === 'compress' ? 'jpg' : 'png'}`; link.href = exportCanvas.toDataURL(currentTool === 'compress' ? 'image/jpeg' : 'image/png', quality); link.click();
+  const link = document.createElement('a'); link.download = `smarttools-${currentTool}.${currentTool === 'compress' ? 'jpg' : 'webp'}`; link.href = exportCanvas.toDataURL(currentTool === 'compress' ? 'image/jpeg' : 'image/webp', quality); link.click();
 }
-function saveCanvas(canvas, filename) { const link = document.createElement('a'); link.download = filename; link.href = canvas.toDataURL('image/png'); link.click(); }
+function saveCanvas(canvas, filename) { const link = document.createElement('a'); link.download = filename; link.href = canvas.toDataURL('image/webp'); link.click(); }
 function formatBytes(bytes) { if (!bytes) return '0 B'; const units = ['B','KB','MB']; const index = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1); return `${(bytes / (1024 ** index)).toFixed(index ? 1 : 0)} ${units[index]}`; }
