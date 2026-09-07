@@ -40,7 +40,7 @@ const templatePresets = Object.fromEntries(Array.from({ length: 10 }, (_, index)
   const id = `frame-${String(index + 1).padStart(2, '0')}`;
   return [id, { id, label: `Template ${String(index + 1).padStart(2, '0')}`, src: `templates/${id}.png`, image: null }];
 }));
-const templateState = { preset: 'frame-01', centerX: .5, centerY: .5, scale: .84, rotation: 0, dragging: false, dragMode: '', resizeHandle: '', startX: 0, startY: 0, startCenterX: .5, startCenterY: .5, startScale: .84, startRotation: 0 };
+const templateState = { preset: 'frame-01', centerX: .5, centerY: .5, scaleX: .84, scaleY: .84, rotation: 0, dragging: false, dragMode: '', resizeHandle: '', startX: 0, startY: 0, startCenterX: .5, startCenterY: .5, startScaleX: .84, startScaleY: .84, startRotation: 0, anchorX: 0, anchorY: 0, startWidth: 0, startHeight: 0 };
 const $ = (selector) => document.querySelector(selector);
 
 lucide.createIcons();
@@ -96,7 +96,7 @@ function clearToolSession() {
   effectsState.preset = 'vhs'; effectsState.intensity = 65; effectsState.grain = 35; effectsState.adjustmentsOpen = false;
   compressorState.quality = 80;
   qrState.text = 'https://smarttools.example'; qrState.size = 220;
-  templateState.preset = 'frame-01'; templateState.centerX = .5; templateState.centerY = .5; templateState.scale = .84; templateState.rotation = 0; templateState.dragging = false;
+  templateState.preset = 'frame-01'; templateState.centerX = .5; templateState.centerY = .5; templateState.scaleX = .84; templateState.scaleY = .84; templateState.rotation = 0; templateState.dragging = false;
   const input = $('#image-input'); if (input) input.value = '';
   const imageCanvas = $('#image-canvas'); const frameCanvas = $('#frame-canvas');
   imageCanvas?.getContext('2d')?.clearRect(0, 0, imageCanvas.width, imageCanvas.height);
@@ -149,6 +149,8 @@ $('#template-guides')?.addEventListener('pointerdown', startTemplateGesture);
 $('#template-guides')?.addEventListener('pointermove', moveTemplateGesture);
 $('#template-guides')?.addEventListener('pointerup', endTemplateGesture);
 $('#template-guides')?.addEventListener('pointercancel', endTemplateGesture);
+$('#canvas-frame')?.addEventListener('pointermove', updateTemplateCursor);
+$('#template-guides')?.addEventListener('pointermove', updateTemplateCursor);
 document.querySelectorAll('.template-handle').forEach((handle) => handle.addEventListener('pointerdown', startTemplateGesture));
 window.addEventListener('resize', () => { if (sourceImage) renderCanvas(); });
 
@@ -199,7 +201,7 @@ function renderControls() {
     renderEffectPreviews(); return;
   }
   if (currentTool === 'templates') {
-    target.innerHTML = `<div class="filter-presets template-presets"><div class="filter-presets-heading"><span>Template Library</span><small>10 frame styles</small></div><div class="filter-preset-grid">${Object.entries(templatePresets).map(([key, preset]) => `<button type="button" class="filter-preset template-preset ${templateState.preset === key ? 'active' : ''}" data-template-preset="${key}" aria-label="Apply ${preset.label}, ID ${preset.id}"><span class="filter-thumb"><canvas width="150" height="92" data-template-canvas="${key}"></canvas></span><strong>${preset.label}</strong><small class="template-id">${preset.id}</small></button>`).join('')}</div></div><p class="template-note">Drag the frame to move it. Use a corner to resize and the top handle to rotate.</p><button type="button" class="secondary-button template-reset" id="reset-composition">Reset composition</button>`;
+    target.innerHTML = `<div class="filter-presets template-presets"><div class="filter-presets-heading"><span>Template Library</span><small>10 frame styles</small></div><div class="filter-preset-grid">${Object.entries(templatePresets).map(([key, preset]) => `<button type="button" class="filter-preset template-preset ${templateState.preset === key ? 'active' : ''}" data-template-preset="${key}" aria-label="Apply ${preset.label}, ID ${preset.id}"><span class="filter-thumb"><canvas width="150" height="92" data-template-canvas="${key}"></canvas></span><strong>${preset.label}</strong><small class="template-id">${preset.id}</small></button>`).join('')}</div></div><p class="template-note">Drag inside to move. Drag an edge or corner to resize freely. Move just outside a corner and drag to rotate.</p><button type="button" class="secondary-button template-reset" id="reset-composition">Reset composition</button>`;
     document.querySelectorAll('[data-template-preset]').forEach((button) => button.addEventListener('click', () => selectTemplate(button.dataset.templatePreset)));
     loadTemplateFrames().then(() => { renderTemplatePreviews(); renderCanvas(); }); return;
   }
@@ -353,8 +355,8 @@ function getTemplateBounds(canvas) {
   const frame = templatePresets[templateState.preset]?.image;
   if (!frame || !canvas.width || !canvas.height) return null;
   const alpha = templatePresets[templateState.preset].alphaBounds || { x: 0, y: 0, width: frame.width, height: frame.height, centerX: frame.width / 2, centerY: frame.height / 2 };
-  const sourceWidth = canvas.width * templateState.scale;
-  const sourceHeight = sourceWidth * (frame.height / frame.width);
+  const sourceWidth = canvas.width * templateState.scaleX;
+  const sourceHeight = canvas.height * templateState.scaleY;
   const width = sourceWidth * alpha.width / frame.width;
   const height = sourceHeight * alpha.height / frame.height;
   return { width, height, sourceWidth, sourceHeight, sourceOffsetX: sourceWidth * alpha.centerX / frame.width - width / 2, sourceOffsetY: sourceHeight * alpha.centerY / frame.height - height / 2, centerX: canvas.width * templateState.centerX, centerY: canvas.height * templateState.centerY };
@@ -419,7 +421,7 @@ function selectTemplate(key) {
 
 function resetTemplateComposition() {
   templateState.preset = 'frame-01';
-  templateState.centerX = .5; templateState.centerY = .5; templateState.scale = .84; templateState.rotation = 0;
+  templateState.centerX = .5; templateState.centerY = .5; templateState.scaleX = .84; templateState.scaleY = .84; templateState.rotation = 0;
   cropState.zoom = 100; cropState.rotation = 0; cropState.offsetX = 0; cropState.offsetY = 0;
   renderControls();
   renderCanvas();
@@ -440,22 +442,136 @@ function endCanvasGesture() {
   else endCropGesture();
 }
 
+function getTemplateGuideMetrics(guides) {
+  const rect = guides.getBoundingClientRect();
+  return {
+    rect,
+    width: guides.offsetWidth || parseFloat(guides.style.width) || rect.width,
+    height: guides.offsetHeight || parseFloat(guides.style.height) || rect.height,
+    centerX: rect.left + rect.width / 2,
+    centerY: rect.top + rect.height / 2
+  };
+}
+
+function getTemplateLocalPoint(event, metrics) {
+  const angle = -templateState.rotation * Math.PI / 180;
+  const x = event.clientX - metrics.centerX;
+  const y = event.clientY - metrics.centerY;
+  return {
+    x: x * Math.cos(angle) - y * Math.sin(angle),
+    y: x * Math.sin(angle) + y * Math.cos(angle)
+  };
+}
+
+function getTemplateHandle(metrics, event) {
+  const p = getTemplateLocalPoint(event, metrics);
+  const hx = metrics.width / 2;
+  const hy = metrics.height / 2;
+  const hit = Math.max(18, Math.min(30, Math.min(metrics.width, metrics.height) * .1));
+  const horizontal = Math.abs(Math.abs(p.x) - hx) <= hit;
+  const vertical = Math.abs(Math.abs(p.y) - hy) <= hit;
+  if (!horizontal && !vertical) return '';
+  const xEdge = p.x < 0 ? 'w' : 'e';
+  const yEdge = p.y < 0 ? 'n' : 's';
+  if (horizontal && vertical) return yEdge + xEdge;
+  if (horizontal) return xEdge;
+  return yEdge;
+}
+
+function isOutsideCorner(metrics, event) {
+  const p = getTemplateLocalPoint(event, metrics);
+  const hx = metrics.width / 2;
+  const hy = metrics.height / 2;
+  const cornerDistance = Math.max(30, Math.min(52, Math.min(metrics.width, metrics.height) * .14));
+  const corners = [[-hx, -hy], [hx, -hy], [hx, hy], [-hx, hy]];
+  return corners.some(([x, y]) => Math.hypot(p.x - x, p.y - y) <= cornerDistance && (Math.abs(p.x) >= hx || Math.abs(p.y) >= hy));
+}
+
+// Photoshop-like rotation zones: the resize handles remain resize handles when
+// touched directly, while the small area immediately outside each handle/edge
+// becomes a rotation zone. This makes mouse use intuitive and gives touch users
+// a forgiving gesture area around the box.
+function getTemplateRotateZone(metrics, event) {
+  const p = getTemplateLocalPoint(event, metrics);
+  const hx = metrics.width / 2;
+  const hy = metrics.height / 2;
+  const outer = Math.max(30, Math.min(52, Math.min(metrics.width, metrics.height) * .14));
+  const edgeBand = Math.max(18, Math.min(34, Math.min(metrics.width, metrics.height) * .08));
+  const outsideX = Math.max(0, Math.abs(p.x) - hx);
+  const outsideY = Math.max(0, Math.abs(p.y) - hy);
+
+  // Corners: rotate just outside the corner, not on top of the resize handle.
+  const nearCorner = Math.hypot(Math.max(0, Math.abs(p.x) - hx), Math.max(0, Math.abs(p.y) - hy)) <= outer
+    && Math.abs(p.x) >= hx && Math.abs(p.y) >= hy;
+  if (nearCorner) return 'rotate';
+
+  // Side handles: the narrow area immediately beyond the middle of an edge rotates.
+  const nearVerticalSide = outsideX <= edgeBand && Math.abs(p.y) <= hy * .55 && Math.abs(p.x) >= hx;
+  const nearHorizontalSide = outsideY <= edgeBand && Math.abs(p.x) <= hx * .55 && Math.abs(p.y) >= hy;
+  if (nearVerticalSide || nearHorizontalSide) return 'rotate';
+  return '';
+}
+
+function updateTemplateCursor(event) {
+  const guides = $('#template-guides');
+  const canvasFrame = $('#canvas-frame');
+  if (!guides || !canvasFrame || currentTool !== 'templates' || !guides.classList.contains('is-visible') || templateState.dragging) return;
+  const metrics = getTemplateGuideMetrics(guides);
+  const explicitHandle = event.target.closest?.('.template-handle');
+  const p = getTemplateLocalPoint(event, metrics);
+  const insideBox = Math.abs(p.x) <= metrics.width / 2 && Math.abs(p.y) <= metrics.height / 2;
+  const rotateZone = !explicitHandle && getTemplateRotateZone(metrics, event) === 'rotate';
+  canvasFrame.classList.toggle('cursor-rotate', rotateZone);
+  guides.classList.toggle('cursor-rotate', rotateZone);
+  if (rotateZone) {
+    canvasFrame.style.cursor = 'url(assets/rotate-cursor.png) 16 16, grab';
+    guides.style.cursor = 'url(assets/rotate-cursor.png) 16 16, grab';
+  } else if (explicitHandle) {
+    const handle = explicitHandle.dataset.handle || '';
+    const resizeCursor = ['nw','se'].includes(handle) ? 'nwse-resize' : ['ne','sw'].includes(handle) ? 'nesw-resize' : ['e','w'].includes(handle) ? 'ew-resize' : 'ns-resize';
+    canvasFrame.style.cursor = resizeCursor;
+    guides.style.cursor = resizeCursor;
+  } else if (insideBox) {
+    canvasFrame.style.cursor = 'move';
+    guides.style.cursor = 'move';
+  } else {
+    canvasFrame.style.cursor = '';
+    guides.style.cursor = '';
+  }
+}
+
 function startTemplateGesture(event) {
   if (!sourceImage || currentTool !== 'templates') return;
   event.preventDefault();
   const guides = $('#template-guides');
-  const guideRect = guides?.getBoundingClientRect();
-  const pointerX = event.clientX; const pointerY = event.clientY;
-  const corner = guideRect && [['nw', guideRect.left, guideRect.top], ['ne', guideRect.right, guideRect.top], ['se', guideRect.right, guideRect.bottom], ['sw', guideRect.left, guideRect.bottom]].find(([, x, y]) => Math.hypot(pointerX - x, pointerY - y) <= 22);
-  const nearRotate = guideRect && Math.hypot(pointerX - (guideRect.left + guideRect.width / 2), pointerY - (guideRect.top - 32)) <= 18;
-  const handle = event.target.closest('.template-handle') || event.currentTarget.closest?.('.template-handle');
+  if (!guides) return;
+  const metrics = getTemplateGuideMetrics(guides);
+  const explicitHandle = event.target.closest('.template-handle');
+  const handle = explicitHandle?.dataset.handle || getTemplateHandle(metrics, event);
+  // Directly touching a visible handle always means resize. The rotation zone
+  // is deliberately just outside it, matching the feel of Photoshop.
+  const rotateZone = !explicitHandle && (isOutsideCorner(metrics, event) || getTemplateRotateZone(metrics, event) === 'rotate');
+  const inside = getTemplateLocalPoint(event, metrics);
+  const insideBox = Math.abs(inside.x) <= metrics.width / 2 && Math.abs(inside.y) <= metrics.height / 2;
+  const mode = rotateZone ? 'rotate' : (handle ? 'resize' : (insideBox ? 'move' : ''));
+  if (!mode) return;
+
   templateState.dragging = true;
-  templateState.dragMode = handle?.classList.contains('template-rotate') || nearRotate ? 'rotate' : handle || corner ? 'resize' : 'move';
-  templateState.resizeHandle = handle?.dataset.handle || corner?.[0] || '';
+  templateState.dragMode = mode;
+  templateState.resizeHandle = handle;
   templateState.startX = event.clientX; templateState.startY = event.clientY;
-  templateState.startCenterX = templateState.centerX; templateState.startCenterY = templateState.centerY; templateState.startScale = templateState.scale; templateState.startRotation = templateState.rotation;
+  templateState.startCenterX = templateState.centerX; templateState.startCenterY = templateState.centerY;
+  templateState.startScaleX = templateState.scaleX; templateState.startScaleY = templateState.scaleY;
+  templateState.startRotation = templateState.rotation;
+  templateState.startWidth = metrics.width; templateState.startHeight = metrics.height;
   event.currentTarget?.setPointerCapture?.(event.pointerId);
-  guides?.classList.add('is-interacting');
+  guides.classList.add('is-interacting');
+  if (mode === 'rotate') {
+    guides.classList.add('cursor-rotate');
+    guides.style.cursor = 'url(assets/rotate-cursor.png) 16 16, grab';
+    $('#canvas-frame')?.classList.add('cursor-rotate');
+    $('#canvas-frame')?.style.setProperty('cursor', 'url(assets/rotate-cursor.png) 16 16, grabbing');
+  }
 }
 
 function moveTemplateGesture(event) {
@@ -463,35 +579,63 @@ function moveTemplateGesture(event) {
   event.preventDefault();
   const canvas = $('#image-canvas');
   const rect = canvas.getBoundingClientRect();
+  const guides = $('#template-guides');
+  const guideRect = guides?.getBoundingClientRect();
   const dx = event.clientX - templateState.startX;
   const dy = event.clientY - templateState.startY;
+
   if (templateState.dragMode === 'move') {
-    const bounds = getTemplateBounds(canvas);
-    const angle = templateState.rotation * Math.PI / 180;
-    const halfWidth = (Math.abs(bounds.width * Math.cos(angle)) + Math.abs(bounds.height * Math.sin(angle))) / 2;
-    const halfHeight = (Math.abs(bounds.width * Math.sin(angle)) + Math.abs(bounds.height * Math.cos(angle))) / 2;
-    const minX = halfWidth / canvas.width; const maxX = 1 - minX;
-    const minY = halfHeight / canvas.height; const maxY = 1 - minY;
-    templateState.centerX = Math.max(minX, Math.min(maxX, templateState.startCenterX + dx / rect.width));
-    templateState.centerY = Math.max(minY, Math.min(maxY, templateState.startCenterY + dy / rect.height));
+    templateState.centerX = templateState.startCenterX + dx / rect.width;
+    templateState.centerY = templateState.startCenterY + dy / rect.height;
   } else if (templateState.dragMode === 'rotate') {
     const bounds = getTemplateBounds(canvas);
     const centerX = rect.left + bounds.centerX * rect.width / canvas.width;
     const centerY = rect.top + bounds.centerY * rect.height / canvas.height;
     const startAngle = Math.atan2(templateState.startY - centerY, templateState.startX - centerX);
     const currentAngle = Math.atan2(event.clientY - centerY, event.clientX - centerX);
-    templateState.rotation = templateState.startRotation + (currentAngle - startAngle) * 180 / Math.PI;
-  } else {
-    const distance = Math.hypot(dx, dy);
-    const direction = dx + dy;
-    templateState.scale = Math.max(.24, Math.min(1.8, templateState.startScale + (direction >= 0 ? distance : -distance) / Math.max(rect.width, rect.height)));
+    let delta = (currentAngle - startAngle) * 180 / Math.PI;
+    while (delta > 180) delta -= 360;
+    while (delta < -180) delta += 360;
+    templateState.rotation = templateState.startRotation + delta;
+  } else if (templateState.dragMode === 'resize') {
+    const handle = templateState.resizeHandle;
+    const angle = templateState.startRotation * Math.PI / 180;
+    const localDx = dx * Math.cos(angle) + dy * Math.sin(angle);
+    const localDy = -dx * Math.sin(angle) + dy * Math.cos(angle);
+    const startW = Math.max(24, templateState.startWidth);
+    const startH = Math.max(24, templateState.startHeight);
+    const minW = 36;
+    const minH = 36;
+    let newW = startW;
+    let newH = startH;
+    if (handle.includes('e')) newW = Math.max(minW, startW + localDx);
+    if (handle.includes('w')) newW = Math.max(minW, startW - localDx);
+    if (handle.includes('s')) newH = Math.max(minH, startH + localDy);
+    if (handle.includes('n')) newH = Math.max(minH, startH - localDy);
+
+    const oldCenter = { x: templateState.startCenterX * rect.width, y: templateState.startCenterY * rect.height };
+    const movedX = ((newW - startW) / 2) * (handle.includes('w') ? 1 : handle.includes('e') ? -1 : 0);
+    const movedY = ((newH - startH) / 2) * (handle.includes('n') ? 1 : handle.includes('s') ? -1 : 0);
+    const centerShiftX = movedX * Math.cos(angle) - movedY * Math.sin(angle);
+    const centerShiftY = movedX * Math.sin(angle) + movedY * Math.cos(angle);
+    const center = { x: oldCenter.x + centerShiftX, y: oldCenter.y + centerShiftY };
+
+    templateState.scaleX = Math.max(.08, Math.min(3.5, templateState.startScaleX * (newW / startW)));
+    templateState.scaleY = Math.max(.08, Math.min(3.5, templateState.startScaleY * (newH / startH)));
+    templateState.centerX = center.x / rect.width;
+    templateState.centerY = center.y / rect.height;
   }
   renderCanvas();
 }
 
 function endTemplateGesture() {
   templateState.dragging = false;
-  $('#template-guides')?.classList.remove('is-interacting');
+  const guides = $('#template-guides');
+  const canvasFrame = $('#canvas-frame');
+  guides?.classList.remove('is-interacting', 'cursor-rotate');
+  canvasFrame?.classList.remove('cursor-rotate');
+  if (guides) guides.style.cursor = '';
+  if (canvasFrame) canvasFrame.style.cursor = '';
 }
 
 function drawTemplateFrame(ctx, width, height, key) {
