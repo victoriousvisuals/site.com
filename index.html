@@ -137,6 +137,68 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+		<!-- illustrator image section-->
+ <script>
+(function () {
+    "use strict";
+
+    const content = document.querySelector(".design-process-content");
+    const visual = document.querySelector(".design-process-visual");
+
+    if (!content && !visual) {
+        return;
+    }
+
+    const elements = [content, visual].filter(Boolean);
+
+    /* Respect visitors who prefer reduced motion */
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        elements.forEach(function (element) {
+            element.classList.add("is-visible");
+        });
+
+        return;
+    }
+
+    /* Fallback for older browsers */
+    if (!("IntersectionObserver" in window)) {
+        elements.forEach(function (element) {
+            element.classList.add("is-visible");
+        });
+
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        function (entries, currentObserver) {
+
+            entries.forEach(function (entry) {
+
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                entry.target.classList.add("is-visible");
+
+                /* Animate only once */
+                currentObserver.unobserve(entry.target);
+
+            });
+
+        },
+        {
+            threshold: 0.15,
+            rootMargin: "0px 0px -35px 0px"
+        }
+    );
+
+    elements.forEach(function (element) {
+        observer.observe(element);
+    });
+
+})();
+</script>
+
       <!-- =====================================================
      VICTORIOUS VISUALS PAGE PRELOADER
 ===================================================== -->
@@ -486,85 +548,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </section>
 
+	<!-- Design Process Showcase -->
+<section class="design-process-section" aria-labelledby="design-process-title">
 
-<!-- =====================================================
-     VICTORIOUS VISUALS — ANNOUNCEMENT SECTION
-     ===================================================== -->
+    <div class="design-process-container">
 
-<section class="vv-announcement-section">
+        <!-- Left: Text Content -->
+        <div class="design-process-content">
 
-    <div class="vv-container">
+            <h2 id="design-process-title">
+                Turning <span>Ideas Into</span><br>
+                Visual Impact
+            </h2>
 
-        <div class="vv-announcement-card">
+            <p>
+                From an initial concept to a finished visual, we carefully
+                craft designs that reflect your vision and make your
+                brand stand out.
+            </p>
 
-            <!-- Decorative dots -->
-            <div class="vv-announcement-dots">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-
-            <!-- Advertisement image -->
-
-            <div class="vv-announcement-image">
-
-                <img
-    src="images/customer-connection-motion.gif"
-    alt="Victorious Visuals - Customer Connection"
- decoding="async" loading="lazy">
-
-            </div>
-
-
-            <!-- Announcement content -->
-
-            <div class="vv-announcement-content">
-
-                <h2>
-                    Let People Know<br>
-                    Your Business Through<br>
-                    <span>Victorious Visuals</span>
-                </h2>
-
-                <p>
-                    Join the big number of people who advertise
-                    and get connected to new customers through
-                    our website.
-                </p>
-
-                <a
-                    href="advertise.html"
-                    class="vv-announcement-button"
-                >
-                    Read more
-                </a>
-
-            </div>
+            <a href="/blog" class="design-process-button">
+                Get More Tips
+                <i class="bi bi-arrow-right"></i>
+            </a>
 
         </div>
 
 
-        <!-- Small decorative line -->
+        <!-- Right: Illustrator Screenshot -->
+        <div class="design-process-visual">
 
-        <div class="vv-announcement-line"></div>
+            <figure class="design-process-image">
+                <img
+                    src="images/illustrator-design-process.png"
+                    alt="Victorious Visuals design process in Adobe Illustrator"
+                    loading="lazy"
+                >
+            </figure>
+
+        </div>
 
     </div>
 
 </section>
 
 
-
-    <!-- =====================================================
+  <!-- =====================================================
          2. CALL TO ACTION
          ===================================================== -->
 
@@ -602,8 +631,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         the right customers.
                     </p>
 
-                    <a href="/blog" class="vv-primary-button">
-                        Get More Tips
+                    <a href="prices.html" class="vv-primary-button">
+                        See Pricing
                     </a>
 
                 </div>
@@ -613,7 +642,6 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
     </section>
-
 
 
     <!-- =====================================================
@@ -802,6 +830,84 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 </a>
 
+<!-- =====================================================
+     VICTORIOUS VISUALS — ANNOUNCEMENT SECTION
+     ===================================================== -->
+
+<section class="vv-announcement-section">
+
+    <div class="vv-container">
+
+        <div class="vv-announcement-card">
+
+            <!-- Decorative dots -->
+            <div class="vv-announcement-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+
+            <!-- Advertisement image -->
+
+            <div class="vv-announcement-image">
+
+                <img
+    src="images/customer-connection-motion.gif"
+    alt="Victorious Visuals - Customer Connection"
+ decoding="async" loading="lazy">
+
+            </div>
+
+
+            <!-- Announcement content -->
+
+            <div class="vv-announcement-content">
+
+                <h2>
+                    Let People Know<br>
+                    Your Business Through<br>
+                    <span>Victorious Visuals</span>
+                </h2>
+
+                <p>
+                    Join the big number of people who advertise
+                    and get connected to new customers through
+                    our website.
+                </p>
+
+                <a
+                    href="advertise.html"
+                    class="vv-announcement-button"
+                >
+                    Read more
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Small decorative line -->
+
+        <div class="vv-announcement-line"></div>
+
+    </div>
+
+</section>
+
+
+
+  
 
 
                 <!-- VIDEO -->
