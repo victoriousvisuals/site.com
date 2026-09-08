@@ -88,6 +88,55 @@
 }
 </style>
 
+		<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const revealImages = document.querySelectorAll(".reveal-image");
+
+    if (!revealImages.length) {
+        return;
+    }
+
+    /* Fallback for older browsers */
+    if (!("IntersectionObserver" in window)) {
+
+        revealImages.forEach(function (image) {
+            image.classList.add("is-visible");
+        });
+
+        return;
+    }
+
+    const imageObserver = new IntersectionObserver(
+        function (entries, observer) {
+
+            entries.forEach(function (entry) {
+
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                entry.target.classList.add("is-visible");
+
+                /* Stop observing after the animation runs once */
+                observer.unobserve(entry.target);
+
+            });
+
+        },
+        {
+            threshold: 0.15,
+            rootMargin: "0px 0px -40px 0px"
+        }
+    );
+
+    revealImages.forEach(function (image) {
+        imageObserver.observe(image);
+    });
+
+});
+</script>
+
       <!-- =====================================================
      VICTORIOUS VISUALS PAGE PRELOADER
 ===================================================== -->
@@ -379,6 +428,64 @@
     </div>
 
 </section>
+
+	<!-- Family Care Branding Showcase -->
+<section class="branding-showcase" aria-labelledby="branding-showcase-title">
+
+    <div class="branding-showcase-container">
+
+        <!-- Section Introduction -->
+        <div class="branding-showcase-heading">
+            <h2 id="branding-showcase-title">
+                From Concept to <span>Creative Excellence</span>
+            </h2>
+
+            <p>
+                At Victorious Visuals, we transform ideas into polished,
+                professional artwork using creativity, precision,
+                and attention to detail.
+            </p>
+        </div>
+
+
+        <!-- Image Gallery -->
+        <div class="branding-showcase-gallery">
+
+            <!-- Top Left Image -->
+            <figure class="branding-showcase-image reveal-image">
+                <img
+                    src="images/family-care-fence-1.png"
+                    alt="Family Care and Maternity Unit branded healthcare wall"
+                    loading="lazy"
+                >
+            </figure>
+
+
+            <!-- Top Right Image -->
+            <figure class="branding-showcase-image reveal-image">
+                <img
+                    src="images/family-care-fence-2.png"
+                    alt="Family Care and Maternity Unit professional wall branding"
+                    loading="lazy"
+                >
+            </figure>
+
+
+            <!-- Bottom Wide Image -->
+            <figure class="branding-showcase-image branding-showcase-wide reveal-image">
+                <img
+                    src="images/family-care-fence-3.png"
+                    alt="Complete Family Care and Maternity Unit healthcare fence branding"
+                    loading="lazy"
+                >
+            </figure>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 <!-- =====================================================
      VICTORIOUS VISUALS — ANNOUNCEMENT SECTION
