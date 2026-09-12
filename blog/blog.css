@@ -1,0 +1,901 @@
+/* Blog content styles only. The site-wide navigation and footer are styled exclusively by css/victorious-visuals.css. */
+/* ==========================================================================
+   1. CSS VARIABLES & BASE RESETS
+   ========================================================================== */
+:root {
+  --teal: #009eaa;
+  --teal-dark: #007f89;
+  --navy: #12274a;
+  --ink: #243653;
+  --muted: #66758d;
+  --line: #dce6ee;
+  --soft: #f6fbfc;
+  --white: #fff;
+  --shadow: 0 14px 40px rgba(18, 39, 74, 0.07);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Common Element Scope */
+.vv-blog img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* ==========================================================================
+   2. SHARED COMPONENTS & UTILITIES
+   ========================================================================== */
+.vv-section-heading,
+.vv-interesting h2,
+.vv-article-sidebar h2 {
+  margin: 0 0 22px;
+  color: var(--navy);
+  font-size: 27px;
+  line-height: 1.2;
+  font-weight: 780;
+  letter-spacing: -0.025em;
+}
+
+.vv-pill {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #e8f8f9;
+  color: var(--teal-dark);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.vv-meta {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #718097;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.vv-meta i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #a6b3c2;
+}
+
+.vv-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 13px 21px;
+  border-radius: 999px;
+  background: var(--teal);
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 9px 22px rgba(0, 158, 170, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.vv-primary-btn span {
+  font-size: 19px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.vv-primary-btn:hover {
+  background: var(--teal-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 13px 28px rgba(0, 158, 170, 0.27);
+}
+
+.vv-primary-btn:hover span {
+  transform: translateX(5px);
+}
+
+.vv-primary-btn:active {
+  transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   4. FEATURED SECTION & SIDE CARDS
+   ========================================================================== */
+.vv-feature-layout {
+  width: min(1400px, 91.5%);
+  margin: 46px auto 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(390px, 0.95fr);
+  gap: 58px;
+  align-items: start;
+}
+
+/* Main Feature Card */
+.vv-feature-card {
+  overflow: hidden;
+  border: 1px solid #dbe7ed;
+  border-radius: 23px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 70px;
+}
+
+.vv-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 52px rgba(18, 39, 74, 0.11);
+}
+
+.vv-feature-image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1.82;
+  background: #dff4f5;
+}
+
+.vv-feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.5s ease;
+}
+
+.vv-feature-card:hover .vv-feature-image img {
+  transform: scale(1.035);
+  filter: saturate(1.05);
+}
+
+.vv-image-label {
+  position: absolute;
+  top: 19px;
+  left: 20px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(0, 158, 170, 0.93);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 750;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+}
+
+.vv-feature-content {
+  padding: 24px 31px 30px;
+}
+
+.vv-feature-content h1 {
+  max-width: 880px;
+  margin: 13px 0 12px;
+  color: var(--navy);
+  font-size: clamp(28px, 3.05vw, 46px);
+  line-height: 1.14;
+  letter-spacing: -0.035em;
+}
+
+.vv-feature-content p {
+  max-width: 760px;
+  margin: 0 0 22px;
+  color: #64738a;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* Side List Section */
+.vv-interesting h2 {
+  margin-bottom: 30px;
+}
+
+.vv-side-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.vv-side-card {
+  border: 1px solid #dbe7ed;
+  border-radius: 19px;
+  background: #fff;
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.vv-side-card:hover {
+  transform: translateY(-3px);
+  border-color: #c9e8eb;
+  box-shadow: 0 15px 35px rgba(18, 39, 74, 0.09);
+}
+
+.vv-side-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 145px 42px;
+  gap: 20px;
+  align-items: center;
+  padding: 16px 15px 16px 20px;
+}
+
+.vv-side-copy {
+  min-width: 0;
+}
+
+.vv-side-copy h3 {
+  margin: 8px 0 0;
+  color: var(--navy);
+  font-size: 17px;
+  line-height: 1.28;
+  letter-spacing: -0.018em;
+}
+
+.vv-side-card img {
+  width: 145px;
+  height: 115px;
+  border-radius: 13px;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.vv-side-card:hover img {
+  transform: scale(1.035);
+}
+
+.vv-side-arrow {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #eaf8fa;
+  color: var(--teal);
+  font-size: 20px;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.vv-side-card:hover .vv-side-arrow {
+  transform: translateX(4px);
+  background: var(--teal);
+  color: #fff;
+}
+
+
+/* ==========================================================================
+   5. MORE ARTICLES / GRID SECTION
+   ========================================================================== */
+.vv-more {
+  width: min(1400px, 91.5%);
+  margin: 72px auto 95px;
+}
+
+.vv-more-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 23px;
+}
+
+.vv-small-label {
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.vv-more-head h2 {
+  margin: 4px 0 0;
+  color: var(--navy);
+  font-size: 29px;
+  letter-spacing: -0.025em;
+}
+
+.vv-search-wrap {
+  display: flex;
+  align-items: center;
+  width: min(350px, 100%);
+  height: 47px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  padding: 0 16px;
+  box-shadow: 0 6px 20px rgba(18, 39, 74, 0.04);
+}
+
+.vv-search-wrap:focus-within {
+  border-color: #9ad8dc;
+  box-shadow: 0 0 0 4px rgba(0, 158, 170, 0.08);
+}
+
+.vv-search-wrap span {
+  font-size: 22px;
+  color: #8290a4;
+  margin-right: 8px;
+}
+
+.vv-search-wrap input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+}
+
+.vv-more-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.vv-mini-card {
+  overflow: hidden;
+  border: 1px solid #dfe8ee;
+  border-radius: 18px;
+  background: #fff;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.vv-mini-card:hover {
+  transform: translateY(-5px);
+  border-color: #c8e8eb;
+  box-shadow: 0 17px 36px rgba(18, 39, 74, 0.09);
+}
+
+.vv-mini-card > a {
+  display: block;
+  height: 100%;
+}
+
+.vv-mini-card img {
+  width: 100%;
+  aspect-ratio: 1.62;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.vv-mini-card:hover img {
+  transform: scale(1.04);
+}
+
+.vv-mini-body {
+  padding: 17px 18px 19px;
+}
+
+.vv-mini-body h3 {
+  margin: 10px 0 7px;
+  color: var(--navy);
+  font-size: 17px;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+.vv-mini-body p {
+  margin: 0;
+  color: #718097;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.vv-no-results {
+  text-align: center;
+  padding: 45px;
+  color: #758399;
+}
+
+
+/* ==========================================================================
+   6. ARTICLE PAGE STYLES
+   ========================================================================== */
+.vv-article-shell {
+  width: min(1400px, 91.5%);
+  margin: 38px auto 90px;
+}
+
+.vv-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 20px;
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 800;
+  transition: gap 0.22s ease;
+}
+
+.vv-back:hover {
+  gap: 12px;
+}
+
+/* Hero Section */
+.vv-article-hero {
+  overflow: hidden;
+  border: 1px solid #dbe7ed;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.vv-article-hero-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 2.35;
+  background: #dff4f5;
+}
+
+.vv-article-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.5s ease;
+}
+
+.vv-article-hero:hover .vv-article-hero-image img {
+  transform: scale(1.018);
+  filter: saturate(1.04);
+}
+
+.vv-article-heading {
+  padding: 30px 42px 34px;
+}
+
+.vv-article-heading .vv-pill {
+  margin-bottom: 14px;
+}
+
+.vv-article-heading h1 {
+  max-width: 1000px;
+  margin: 12px 0 13px;
+  color: var(--navy);
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.vv-article-heading p {
+  max-width: 850px;
+  margin: 0;
+  color: #66758d;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Article Body & Sidebar Grid */
+.vv-article-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  gap: 58px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.vv-article-content {
+  min-width: 0;
+  max-width: 850px;
+  color: #334764;
+  font-size: 17px;
+  line-height: 1.82;
+}
+
+.vv-article-content > p:first-child {
+  font-size: 19px;
+  color: #263b5a;
+}
+
+.vv-article-content h2 {
+  margin: 42px 0 13px;
+  color: var(--navy);
+  font-size: 30px;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+}
+
+.vv-article-content h3 {
+  margin: 31px 0 10px;
+  color: var(--navy);
+  font-size: 22px;
+}
+
+.vv-article-content p {
+  margin: 0 0 19px;
+}
+
+.vv-article-content ul,
+.vv-article-content ol {
+  margin: 0 0 24px;
+  padding-left: 25px;
+}
+
+.vv-article-content li {
+  margin: 7px 0;
+}
+
+.vv-article-content blockquote {
+  margin: 31px 0;
+  padding: 20px 24px;
+  border-left: 4px solid var(--teal);
+  border-radius: 0 14px 14px 0;
+  background: #eefafb;
+  color: #35516f;
+}
+
+.vv-article-content img {
+  border-radius: 16px;
+  margin: 28px 0;
+  box-shadow: 0 12px 30px rgba(18, 39, 74, 0.08);
+}
+
+/* Article Sidebar */
+.vv-sidebar-sticky {
+  position: sticky;
+  top: 112px;
+}
+
+.vv-article-sidebar .vv-side-list {
+  gap: 14px;
+}
+
+.vv-article-sidebar .vv-side-main {
+  grid-template-columns: 145px minmax(0, 1fr) 34px;
+  padding: 14px 13px 14px 14px;
+}
+
+.vv-article-sidebar .vv-side-card img {
+  width: 145px;
+  height: 112px;
+  order: 0;
+}
+
+.vv-article-sidebar .vv-side-copy {
+  order: 1;
+}
+
+.vv-article-sidebar .vv-side-arrow {
+  order: 2;
+}
+
+.vv-article-sidebar .vv-side-copy h3 {
+  font-size: 16px;
+}
+
+.vv-article-sidebar .vv-meta {
+  margin-top: 7px;
+  font-size: 10px;
+}
+
+.vv-article-sidebar .vv-pill {
+  font-size: 10px;
+}
+
+.vv-article-sidebar .vv-side-card:hover .vv-side-arrow {
+  transform: translateX(4px);
+}
+
+
+/* ==========================================================================
+   8. MEDIA QUERIES (RESPONSIVE)
+   ========================================================================== */
+
+/* Laptop / Medium Desktops (max-width: 1180px) */
+@media (max-width: 1180px) {
+.vv-feature-layout {
+    grid-template-columns: minmax(0, 1.55fr) minmax(360px, 1fr);
+    gap: 30px;
+  }
+
+  .vv-side-main {
+    grid-template-columns: minmax(0, 1fr) 120px 35px;
+  }
+
+  .vv-side-card img {
+    width: 120px;
+    height: 105px;
+  }
+
+  .vv-more-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Article Page Layout Adjustments (max-width: 1050px) */
+@media (max-width: 1050px) {
+  .vv-article-columns {
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 30px;
+  }
+
+  .vv-article-sidebar .vv-side-main {
+    grid-template-columns: 112px minmax(0, 1fr) 32px;
+  }
+
+  .vv-article-sidebar .vv-side-card img {
+    width: 112px;
+    height: 100px;
+  }
+
+  .vv-article-heading {
+    padding: 26px 30px 30px;
+  }
+}
+
+/* Tablets (max-width: 900px) */
+@media (max-width: 900px) {
+
+  .vv-feature-layout {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+
+  .vv-interesting {
+    margin-top: 4px;
+  }
+
+  .vv-side-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vv-more {
+    margin-top: 55px;
+  }
+
+  .vv-more-head {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .vv-search-wrap {
+    width: 100%;
+  }
+}
+
+/* Article Specific Adjustments for Mobile/Tablet (max-width: 800px) */
+@media (max-width: 800px) {
+  .vv-article-shell {
+    width: 94%;
+    margin-top: 28px;
+  }
+
+  .vv-article-hero {
+    border-radius: 19px;
+  }
+
+  .vv-article-hero-image {
+    aspect-ratio: 1.55;
+  }
+
+  .vv-article-heading {
+    padding: 22px 21px 25px;
+  }
+
+  .vv-article-heading h1 {
+    font-size: 32px;
+  }
+
+  .vv-article-heading p {
+    font-size: 15px;
+  }
+
+  .vv-article-columns {
+    grid-template-columns: 1fr;
+    margin-top: 36px;
+    gap: 45px;
+  }
+
+  .vv-article-content {
+    font-size: 16px;
+    line-height: 1.76;
+  }
+
+  .vv-article-content > p:first-child {
+    font-size: 17px;
+  }
+
+  .vv-article-content h2 {
+    font-size: 27px;
+    margin-top: 35px;
+  }
+
+  .vv-sidebar-sticky {
+    position: static;
+  }
+
+  .vv-article-sidebar h2 {
+    font-size: 25px;
+  }
+
+  .vv-article-sidebar .vv-side-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+}
+
+/* Small Screens / Mobile (max-width: 620px) */
+@media (max-width: 620px) {
+.vv-feature-layout,
+  .vv-more {
+    width: 94%;
+  }
+
+  .vv-section-heading,
+  .vv-interesting h2 {
+    font-size: 23px;
+    margin-bottom: 15px;
+  }
+
+  .vv-feature-card {
+    border-radius: 18px;
+  }
+
+  .vv-feature-content {
+    padding: 19px 20px 23px;
+  }
+
+  .vv-feature-content h1 {
+    font-size: 27px;
+  }
+
+  .vv-feature-content p {
+    font-size: 14px;
+  }
+
+  .vv-side-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .vv-side-main {
+    grid-template-columns: minmax(0, 1fr) 102px 34px;
+    gap: 11px;
+    padding: 13px;
+  }
+
+  .vv-side-card img {
+    width: 102px;
+    height: 91px;
+    border-radius: 10px;
+  }
+
+  .vv-side-copy h3 {
+    font-size: 15px;
+  }
+
+  .vv-meta {
+    font-size: 10px;
+    gap: 7px;
+  }
+
+  .vv-pill {
+    font-size: 9.5px;
+    padding: 4px 8px;
+  }
+
+  .vv-more-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .vv-mini-card {
+    border-radius: 16px;
+  }
+
+  .vv-more-head h2 {
+    font-size: 25px;
+  }
+}
+
+/* Article & Side Card Mobile Fixes (max-width: 560px) */
+@media (max-width: 560px) {
+  .vv-article-shell {
+    width: 94%;
+  }
+
+  .vv-article-hero-image {
+    aspect-ratio: 1.18;
+  }
+
+  .vv-article-heading h1 {
+    font-size: 28px;
+  }
+
+  .vv-article-heading {
+    padding: 19px 18px 22px;
+  }
+
+  .vv-article-heading .vv-meta {
+    font-size: 10px;
+  }
+
+  .vv-article-content {
+    font-size: 15.5px;
+  }
+
+  .vv-article-content h2 {
+    font-size: 24px;
+  }
+
+  .vv-article-sidebar .vv-side-list {
+    grid-template-columns: 1fr;
+  }
+
+  .vv-article-sidebar .vv-side-card {
+    border-radius: 16px;
+  }
+
+  /* Side Card Mobile Overrides */
+  .vv-side-main,
+  .vv-article-sidebar .vv-side-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .vv-side-card img,
+  .vv-article-sidebar .vv-side-card img {
+    order: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.72;
+    border-radius: 0;
+    object-fit: cover;
+  }
+
+  .vv-side-copy,
+  .vv-article-sidebar .vv-side-copy {
+    order: 1;
+    padding: 14px 49px 17px 15px;
+    min-height: 126px;
+  }
+
+  .vv-side-copy h3,
+  .vv-article-sidebar .vv-side-copy h3 {
+    font-size: 16px;
+    line-height: 1.32;
+    margin-top: 8px;
+  }
+
+  .vv-side-arrow,
+  .vv-article-sidebar .vv-side-arrow {
+    position: absolute;
+    right: 14px;
+    bottom: 16px;
+    width: 34px;
+    height: 34px;
+    order: 2;
+  }
+
+  .vv-side-card:hover .vv-side-arrow,
+  .vv-article-sidebar .vv-side-card:hover .vv-side-arrow {
+    transform: translateY(-2px);
+  }
+
+  .vv-article-sidebar .vv-side-card:hover img {
+    transform: scale(1.025);
+  }
+}
+/* Official Victorious Visuals social icon layout.
+   Icons use the same .social-icon-link rules as the main site. */
+.site-footer .social-icon {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+}
+.site-footer .social-icon li {
+  display: inline-block;
+}
+.site-footer .social-icon-link {
+  line-height: 1;
+  text-decoration: none;
+}
